@@ -16,6 +16,8 @@ public class Driver {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        WelcomeScreen s=new WelcomeScreen();
+        s.setVisible(true);
     }
     
 }

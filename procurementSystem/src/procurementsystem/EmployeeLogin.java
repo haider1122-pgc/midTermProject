@@ -176,7 +176,7 @@ public class EmployeeLogin extends javax.swing.JFrame {
                             .addComponent(jLabel21))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(241, 241, 241)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(jLabel6)

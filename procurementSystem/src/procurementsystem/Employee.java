@@ -9,6 +9,25 @@ package procurementsystem;
  *
  * @author Haider
  */
-public class Employee {
+ public class Employee extends Person {
+     private String designation;
+     
+     // setter and getter
+     
+    /**
+     * getter for designation
+     * @return String
+     */
+    public String getDesignation() {
+        return designation;
+    }
+    /**
+     * setter for designation
+     * @param designation 
+     */
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+     
     
 }

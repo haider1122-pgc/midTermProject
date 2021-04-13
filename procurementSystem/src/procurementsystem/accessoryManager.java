@@ -9,6 +9,6 @@ package procurementsystem;
  *
  * @author Haider
  */
-public class accessoryManager {
+ public class accessoryManager extends Person {
     
 }

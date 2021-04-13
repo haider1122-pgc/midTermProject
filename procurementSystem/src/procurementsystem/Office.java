@@ -9,7 +9,7 @@ package procurementsystem;
  *
  * @author Haider
  */
-public class Driver {
+public class Office {
 
     /**
      * @param args the command line arguments

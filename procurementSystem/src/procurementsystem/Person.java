@@ -5,6 +5,8 @@
  */
 package procurementsystem;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Haider
@@ -21,7 +23,7 @@ public class Person {
     private char gender;
     private String password;
     private String cnic;
-    boolean t1, t2, t3, t4, t5, t6, t7, t8;
+    boolean t1, t2, t3, t4, t5;
     //creating getters for all data members
 
     /**
@@ -137,7 +139,7 @@ public class Person {
      * @param employeeID
      */
     public void setEmployeeID(String employeeID) {
-        boolean check1 = false, check = false;
+        boolean check1 = false, check = true;
         int size = employeeID.length();
         if (employeeID.charAt(0) == 'E') {
             if (employeeID.charAt(1) == 'm') {
@@ -156,7 +158,7 @@ public class Person {
                 }
             }
         }
-        if (check == true) {
+        if (check1==true &&check == true) {
             this.employeeID = employeeID;
             t2 = true;
 
@@ -208,7 +210,7 @@ public class Person {
 
         boolean check = true;
         if (size == 11) {
-            for (int i = 0; i <= size; i++) {
+            for (int i = 0; i < size; i++) {
                 if (!(phone.charAt(i) >= '0' && phone.charAt(i) <= '9')) {
                     check = false;
                     break;
@@ -270,7 +272,38 @@ public class Person {
      * @param cnic
      */
     public void setCnic(String cnic) {
-        this.cnic = cnic;
+        int size = cnic.length();
+
+        boolean check = true;
+        if (size == 13) {
+            for (int i = 0; i < size; i++) {
+                if (!(cnic.charAt(i) >= '0' && cnic.charAt(i) <= '9')) {
+                    check = false;
+                    break;
+                }
+            }
+            if (check == true) {
+                this.cnic = cnic;
+                t5 = true;
+            }
+            else {
+                t5 = false;
+            }
+
+        }
+        else {
+             t5 = false;
+        }
+    }
+    //function to test whether all data is validated or not
+    /**
+     * function to validate that all the data is authentic
+     * @return Boolean
+     */
+    public boolean validation(){
+        //JOptionPane.showMessageDialog(null,t1+"\n"+t2+"\n"+t3+"\n"+t4+"\n"+t5+"\n");
+        return t1==true && t2==true && t3==true && t4==true && t5==true;
+        
     }
 
 }

@@ -5,11 +5,16 @@
  */
 package procurementsystem;
 
+import java.awt.List;
+import java.util.ArrayList;
+
 /**
  *
  * @author Haider
  */
 public class Office {
+   public ArrayList<Employee> emp = new ArrayList<>();
+    
 
     /**
      * @param args the command line arguments
@@ -18,6 +23,15 @@ public class Office {
         // TODO code application logic here
         WelcomeScreen s=new WelcomeScreen();
         s.setVisible(true);
+       
+        
+       
+       
+    }
+    public void addEmployee(Employee e){
+        
+        emp.add(e);
     }
     
 }
+ 

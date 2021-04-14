@@ -5,6 +5,8 @@
  */
 package procurementsystem;
 
+import java.awt.List;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -1560,6 +1562,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         //Person p = new Person();
+        Office o=new Office();
         Employee e= new Employee();
         String e1,e2,e3,e4,e5,e6,e7,e8,e9,gnd,e11;
         char e10;
@@ -1595,7 +1598,18 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         boolean test= e.validation();
        if (test==true)
        {
+           o.addEmployee(e);
            JOptionPane.showMessageDialog(null,"Employee Registered Successfully...");
+           
+        ename.setText("");
+        eid.setText("");
+        eemail.setText("");
+        edesignation.setText("");
+        ecity.setText("");
+        epassword.setText("");
+        ephone.setText("");
+        ecnic.setText("");
+        edob.setText("");
        }
        else
        {

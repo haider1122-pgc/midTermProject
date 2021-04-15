@@ -17,6 +17,26 @@ public class Office {
    public ArrayList<accessoryManager> man = new ArrayList<>();
    public ArrayList<Products> pro = new ArrayList<>();
    public ArrayList<Requests> req = new ArrayList<>();
+    static Office o=null;
+   //////////////////////////////////////////////////////////////////////////
+         /**
+          * to let the office class behaves singleton behavior
+          * @return Office 
+          */
+         public static Office getInstance(){
+             if(o==null){
+                 o=new Office();
+                 return o;
+                 
+             }
+             return o;
+             
+         }
+   //////////////////////////////////////////////////////////////////////////
+         //make the Office constructor private
+        private Office (){
+            
+        }
     
 
     /**
@@ -26,8 +46,7 @@ public class Office {
         // TODO code application logic here
         WelcomeScreen s=new WelcomeScreen();
         s.setVisible(true);
-       
-        
+      
        
        
     }
@@ -47,11 +66,41 @@ public class Office {
         
         pro.add(p);
     }
-    
+    /**
+     * removing employee
+     * @param i 
+     */
     public void removeEmployee(int i){
         
         emp.remove(i);
     }
+    /**
+     * removing product
+     * @param i 
+     */
+    public void removeProducts(int i){
+        
+        pro.remove(i);
+    }
+    /**
+     * editing employee data
+     * @param x
+     * @param y 
+     */
+    public void editEmployee(int x, Employee y){
+        emp.set(x,y);
+        
+    }
+    /**
+     * editing products
+     * @param x
+     * @param y 
+     */
+    public void editProduct(int x, Products y){
+        pro.set(x,y);
+        
+    }
+    
     
     
 }

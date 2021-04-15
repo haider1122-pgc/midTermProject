@@ -48,6 +48,11 @@ public class Office {
         pro.add(p);
     }
     
+    public void removeEmployee(int i){
+        
+        emp.remove(i);
+    }
+    
     
 }
  

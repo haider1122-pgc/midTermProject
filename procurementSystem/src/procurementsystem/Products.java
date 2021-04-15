@@ -13,6 +13,7 @@ public class Products {
     private String name;
     private int quantity;
     private int price;
+    boolean t1,t2,t3;
     
     //getter and setter
     
@@ -47,6 +48,7 @@ public class Products {
      */
     public void setName(String name) {
         this.name = name;
+        t1=true;
     }
     
     /**
@@ -55,6 +57,7 @@ public class Products {
      */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+        t2=true;
     }
     
     /**
@@ -63,8 +66,17 @@ public class Products {
      */
     public void setPrice(int price) {
         this.price = price;
+        t3=true;
+
+        
+        
     }
-    
+    ///////////////////////////////////////////////////////////////////////////////
+    public boolean validation(){
+        //JOptionPane.showMessageDialog(null,t1+"\n"+t2+"\n"+t3+"\n"+t4+"\n"+t5+"\n");
+        return t2==true && t3==true && t1==true;
+        
+    }
     
     
     

@@ -8,6 +8,7 @@ package procurementsystem;
 import java.awt.List;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,11 +16,26 @@ import javax.swing.JOptionPane;
  */
 public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
+    //object of office class
+    Office o = new Office();
+    //for tabel output
+    String employeeHeader[] = new String[]{"Name", "Employee ID", "Designation", "Gender", "Email"};
+    DefaultTableModel employee;
+    String productHeader[] = new String[]{"Name", "Quantity", "Price"};
+    DefaultTableModel products;
+
+    int column, row;
+
     /**
      * Creates new form ManagerWelcomeScreen
      */
     public ManagerWelcomeScreen() {
         initComponents();
+
+        employee = new DefaultTableModel(employeeHeader, 0);
+        employeeTabel.setModel(employee);
+        products = new DefaultTableModel(productHeader, 0);
+        productsTabel.setModel(products);
     }
 
     /**
@@ -88,11 +104,13 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        employeeTabel = new javax.swing.JTable();
         jLabel73 = new javax.swing.JLabel();
         jLabel74 = new javax.swing.JLabel();
         edob = new javax.swing.JTextField();
         ecity = new javax.swing.JTextField();
+        jButton24 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
@@ -105,17 +123,17 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jTextField18 = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
+        aname = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
         jLabel50 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jTextField20 = new javax.swing.JTextField();
+        productsTabel = new javax.swing.JTable();
+        aquantity = new javax.swing.JTextField();
         jLabel44 = new javax.swing.JLabel();
-        jTextField21 = new javax.swing.JTextField();
+        aprice = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
@@ -501,7 +519,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/remove_administrator_30px.png"))); // NOI18N
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        employeeTabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -513,7 +531,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                 "Name", "Employee ID", "Designaton", "Gender", "Email"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(employeeTabel);
 
         jLabel73.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel73.setText("DOB :");
@@ -534,6 +552,16 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                 ecityActionPerformed(evt);
             }
         });
+
+        jButton24.setBackground(new java.awt.Color(153, 153, 153));
+        jButton24.setText("Search");
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/search_client_30px.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -607,18 +635,22 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(176, 176, 176)
+                        .addGap(146, 146, 146)
                         .addComponent(jLabel29)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
+                        .addGap(34, 34, 34)
                         .addComponent(jLabel31)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(26, 26, 26)
                         .addComponent(jLabel32)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7))
+                        .addComponent(jButton7)
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton24))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(438, 438, 438)
@@ -653,41 +685,38 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ephone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel30))
-                        .addGap(0, 4, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel74)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(eid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(edesignation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel16)))
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel74)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel15)
+                                    .addComponent(eid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(edesignation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel16)))))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
                             .addComponent(ecnic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 20, Short.MAX_VALUE)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(m)
-                                    .addComponent(f)
-                                    .addComponent(jLabel22))
-                                .addGap(45, 45, 45)
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jLabel32)))
-                            .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addGap(9, 12, Short.MAX_VALUE)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(m)
+                            .addComponent(f)
+                            .addComponent(jLabel22))
+                        .addGap(65, 65, 65)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel73)
@@ -695,10 +724,16 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
-                            .addComponent(ecity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(ecity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel29, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -761,10 +796,10 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jLabel39.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel39.setText("Name of accessory :");
 
-        jTextField19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField19.addActionListener(new java.awt.event.ActionListener() {
+        aname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        aname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField19ActionPerformed(evt);
+                anameActionPerformed(evt);
             }
         });
 
@@ -773,6 +808,11 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jButton10.setBackground(new java.awt.Color(153, 153, 153));
         jButton10.setText("Add");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/procurement_30px.png"))); // NOI18N
 
@@ -782,7 +822,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jButton12.setBackground(new java.awt.Color(153, 153, 153));
         jButton12.setText("Delete");
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        productsTabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -794,22 +834,22 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                 "Name", "Quantity", "Price"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(productsTabel);
 
-        jTextField20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField20.addActionListener(new java.awt.event.ActionListener() {
+        aquantity.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        aquantity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField20ActionPerformed(evt);
+                aquantityActionPerformed(evt);
             }
         });
 
         jLabel44.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel44.setText("Price :");
 
-        jTextField21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField21.addActionListener(new java.awt.event.ActionListener() {
+        aprice.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        aprice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField21ActionPerformed(evt);
+                apriceActionPerformed(evt);
             }
         });
 
@@ -860,9 +900,9 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(aquantity, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(aname, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(aprice, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(325, 325, 325)
                         .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -894,15 +934,15 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(aname, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel43)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(aquantity, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel44)
-                    .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(aprice, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
@@ -1417,7 +1457,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
         dispose();
-        ManagerWelcomeScreen w= new ManagerWelcomeScreen();
+        ManagerWelcomeScreen w = new ManagerWelcomeScreen();
         w.setVisible(true);
     }//GEN-LAST:event_jButton14ActionPerformed
 
@@ -1426,22 +1466,22 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton13ActionPerformed
 
-    private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
+    private void apriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apriceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField21ActionPerformed
+    }//GEN-LAST:event_apriceActionPerformed
 
-    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
+    private void aquantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aquantityActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField20ActionPerformed
+    }//GEN-LAST:event_aquantityActionPerformed
 
-    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
+    private void anameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField19ActionPerformed
+    }//GEN-LAST:event_anameActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         dispose();
-        ManagerWelcomeScreen w= new ManagerWelcomeScreen();
+        ManagerWelcomeScreen w = new ManagerWelcomeScreen();
         w.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -1475,7 +1515,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         // TODO add your handling code here:
         dispose();
-        ManagerWelcomeScreen w= new ManagerWelcomeScreen();
+        ManagerWelcomeScreen w = new ManagerWelcomeScreen();
         w.setVisible(true);
     }//GEN-LAST:event_jButton18ActionPerformed
 
@@ -1487,7 +1527,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         // TODO add your handling code here:
         dispose();
-        ManagerWelcomeScreen w= new ManagerWelcomeScreen();
+        ManagerWelcomeScreen w = new ManagerWelcomeScreen();
         w.setVisible(true);
     }//GEN-LAST:event_jButton20ActionPerformed
 
@@ -1550,7 +1590,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         dispose();
-        ManagerWelcomeScreen w= new ManagerWelcomeScreen();
+        ManagerWelcomeScreen w = new ManagerWelcomeScreen();
         w.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -1562,26 +1602,26 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         //Person p = new Person();
-        Office o=new Office();
-        Employee e= new Employee();
-        String e1,e2,e3,e4,e5,e6,e7,e8,e9,gnd,e11;
+
+        Employee e = new Employee();
+        String e1, e2, e3, e4, e5, e6, e7, e8, e9, gnd, e11;
         char e10;
-        e1=ename.getText();
-        e2=eid.getText();
-        e3=eemail.getText();
-        e4=edesignation.getText();
-        e5=ecity.getText();
-        e6=epassword.getText();
-        e7=ephone.getText();
-        e8=ecnic.getText();
-        e9=edob.getText();
-        
+        e1 = ename.getText();
+        e2 = eid.getText();
+        e3 = eemail.getText();
+        e4 = edesignation.getText();
+        e5 = ecity.getText();
+        e6 = epassword.getText();
+        e7 = ephone.getText();
+        e8 = ecnic.getText();
+        e9 = edob.getText();
+
         //for input through radio buttons
         m.setActionCommand("M");
         f.setActionCommand("F");
-        String g=buttonGroup1.getSelection().getActionCommand();
-        gnd=g;
-        e10=gnd.charAt(0);
+        String g = buttonGroup1.getSelection().getActionCommand();
+        gnd = g;
+        e10 = gnd.charAt(0);
         //setting data to class
         e.setName(e1);
         e.setCnic(e8);
@@ -1593,41 +1633,70 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         e.setEmail(e3);
         e.setDesignation(e4);
         e.setDob(e9);
-        
+
         //validating input
-        boolean test= e.validation();
-       if (test==true)
-       {
-           o.addEmployee(e);
-           JOptionPane.showMessageDialog(null,"Employee Registered Successfully...");
-           
-        ename.setText("");
-        eid.setText("");
-        eemail.setText("");
-        edesignation.setText("");
-        ecity.setText("");
-        epassword.setText("");
-        ephone.setText("");
-        ecnic.setText("");
-        edob.setText("");
-       }
-       else
-       {
-           JOptionPane.showMessageDialog(null,"Failed to register!!!\nInvalid DATA Input...");
-        ename.setText("");
-        eid.setText("");
-        eemail.setText("");
-        edesignation.setText("");
-        ecity.setText("");
-        epassword.setText("");
-        ephone.setText("");
-        ecnic.setText("");
-        edob.setText("");
-           
-       }
-        
-        
+        boolean test = e.validation();
+        if (test == true) {
+            o.addEmployee(e);
+            
+            int size = o.emp.size();
+            employee.setRowCount(0);
+            for (int i = 0; i < size; i++) {
+                Object[] obj = {o.emp.get(i).getName(), o.emp.get(i).getEmployeeID(), o.emp.get(i).getDesignation(), o.emp.get(i).getGender(), o.emp.get(i).getEmail()};
+                employee.addRow(obj);
+            }
+
+            ename.setText("");
+            eid.setText("");
+            eemail.setText("");
+            edesignation.setText("");
+            ecity.setText("");
+            epassword.setText("");
+            ephone.setText("");
+            ecnic.setText("");
+            edob.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to register!!!\nInvalid DATA Input...");
+            
+
+        }
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton24ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        Products p = new Products();
+        String p1, p2, p3;
+        p1 = aname.getText();
+        p2 = aquantity.getText();
+        int price = Integer.parseInt(p2);
+        p3 = aprice.getText();
+        int quantity = Integer.parseInt(p3);
+
+        p.setName(p1);
+        p.setQuantity(price);
+        p.setPrice(quantity);
+        boolean test;
+        test = p.validation();
+        if (test) {
+            o.addProduct(p);
+            int size = o.pro.size();
+            products.setRowCount(0);
+            for (int i = 0; i < size; i++) {
+                Object[] obj = {o.pro.get(i).getName(), o.pro.get(i).getQuantity(), o.pro.get(i).getPrice()};
+                products.addRow(obj);
+            }
+            aname.setText("");
+            aquantity.setText("");
+            aprice.setText("");
+        }
+
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1663,6 +1732,9 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField aname;
+    private javax.swing.JTextField aprice;
+    private javax.swing.JTextField aquantity;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField ecity;
     private javax.swing.JTextField ecnic;
@@ -1670,6 +1742,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private javax.swing.JTextField edob;
     private javax.swing.JTextField eemail;
     private javax.swing.JTextField eid;
+    private javax.swing.JTable employeeTabel;
     private javax.swing.JTextField ename;
     private javax.swing.JTextField epassword;
     private javax.swing.JTextField ephone;
@@ -1689,6 +1762,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1749,6 +1823,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
@@ -1785,18 +1860,14 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JRadioButton m;
+    private javax.swing.JTable productsTabel;
     // End of variables declaration//GEN-END:variables
 }

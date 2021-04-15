@@ -5,7 +5,6 @@
  */
 package procurementsystem;
 
-import java.awt.List;
 import java.util.ArrayList;
 
 /**
@@ -13,7 +12,11 @@ import java.util.ArrayList;
  * @author Haider
  */
 public class Office {
+    
    public ArrayList<Employee> emp = new ArrayList<>();
+   public ArrayList<accessoryManager> man = new ArrayList<>();
+   public ArrayList<Products> pro = new ArrayList<>();
+   public ArrayList<Requests> req = new ArrayList<>();
     
 
     /**
@@ -28,10 +31,23 @@ public class Office {
        
        
     }
+    /**
+     * function to add employee data to list
+     * @param e 
+     */
     public void addEmployee(Employee e){
         
         emp.add(e);
     }
+    /**
+     * adding product
+     * @param p 
+     */
+    public void addProduct(Products p){
+        
+        pro.add(p);
+    }
+    
     
 }
  

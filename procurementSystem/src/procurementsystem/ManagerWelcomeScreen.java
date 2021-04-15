@@ -206,6 +206,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(230, 230, 230));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setText("Exit");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -384,6 +385,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(230, 230, 230));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton5.setText("Exit");
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -395,6 +397,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jButton6.setBackground(new java.awt.Color(230, 230, 230));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton6.setText("Back");
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -488,6 +491,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         buttonGroup1.add(m);
         m.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         m.setText("Male");
+        m.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         m.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mActionPerformed(evt);
@@ -498,6 +502,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(153, 153, 153));
         jButton3.setText("Add");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -508,6 +513,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(153, 153, 153));
         jButton4.setText("Update");
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -516,6 +522,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jButton7.setBackground(new java.awt.Color(153, 153, 153));
         jButton7.setText("Delete");
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -535,7 +542,15 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
             new String [] {
                 "Name", "Employee ID", "Designaton", "Gender", "Email", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         employeeTabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         employeeTabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -764,6 +779,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jButton8.setBackground(new java.awt.Color(230, 230, 230));
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton8.setText("Exit");
+        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -775,6 +791,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jButton9.setBackground(new java.awt.Color(230, 230, 230));
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton9.setText("Back");
+        jButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -799,6 +816,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jButton10.setBackground(new java.awt.Color(153, 153, 153));
         jButton10.setText("Add");
+        jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -809,6 +827,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jButton11.setBackground(new java.awt.Color(153, 153, 153));
         jButton11.setText("Update");
+        jButton11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
@@ -817,6 +836,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jButton12.setBackground(new java.awt.Color(153, 153, 153));
         jButton12.setText("Delete");
+        jButton12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
@@ -834,7 +854,15 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
             new String [] {
                 "Name", "Quantity", "Price"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         productsTabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 productsTabelMouseClicked(evt);
@@ -1005,6 +1033,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jButton17.setBackground(new java.awt.Color(230, 230, 230));
         jButton17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton17.setText("Exit");
+        jButton17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton17ActionPerformed(evt);
@@ -1016,6 +1045,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jButton18.setBackground(new java.awt.Color(230, 230, 230));
         jButton18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton18.setText("Back");
+        jButton18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton18ActionPerformed(evt);
@@ -1033,7 +1063,15 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
             new String [] {
                 "Name of Employee", "Id of Employee", "Accessory", "Quantity", "Date/Time"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane5.setViewportView(jTable5);
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -1111,6 +1149,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jButton13.setBackground(new java.awt.Color(230, 230, 230));
         jButton13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton13.setText("Exit");
+        jButton13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
@@ -1122,6 +1161,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jButton14.setBackground(new java.awt.Color(230, 230, 230));
         jButton14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton14.setText("Back");
+        jButton14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton14ActionPerformed(evt);
@@ -1139,7 +1179,15 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
             new String [] {
                 "Name of Employee", "Id of Employee", "Accessory", "Quantity", "Date/Time"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane4.setViewportView(jTable4);
 
         jLabel52.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -1154,6 +1202,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jButton15.setBackground(new java.awt.Color(153, 153, 153));
         jButton15.setText("Accept");
+        jButton15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton15ActionPerformed(evt);
@@ -1162,6 +1211,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jButton16.setBackground(new java.awt.Color(153, 153, 153));
         jButton16.setText("Reject");
+        jButton16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton16ActionPerformed(evt);
@@ -1281,6 +1331,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jButton30.setBackground(new java.awt.Color(230, 230, 230));
         jButton30.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton30.setText("Exit");
+        jButton30.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton30jButton19ActionPerformed(evt);
@@ -1292,6 +1343,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jButton31.setBackground(new java.awt.Color(230, 230, 230));
         jButton31.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton31.setText("Back");
+        jButton31.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton31jButton20ActionPerformed(evt);
@@ -1302,6 +1354,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jButton32.setBackground(new java.awt.Color(153, 153, 153));
         jButton32.setText("Save All Data");
+        jButton32.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton32jButton21ActionPerformed(evt);
@@ -1312,6 +1365,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jButton33.setBackground(new java.awt.Color(153, 153, 153));
         jButton33.setText("Save Employee Data");
+        jButton33.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton33.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton33jButton22ActionPerformed(evt);
@@ -1322,6 +1376,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jButton34.setBackground(new java.awt.Color(153, 153, 153));
         jButton34.setText("Save Accessory Data");
+        jButton34.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton34.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton34jButton23ActionPerformed(evt);

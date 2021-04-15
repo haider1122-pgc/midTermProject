@@ -51,6 +51,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(230, 230, 230));
 
         jPanel2.setBackground(new java.awt.Color(241, 50, 50));
+        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel2MouseClicked(evt);
@@ -96,6 +97,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
         );
 
         jPanel3.setBackground(new java.awt.Color(245, 144, 25));
+        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel3MouseClicked(evt);
@@ -159,6 +161,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
         );
 
         jPanel4.setBackground(new java.awt.Color(2, 143, 19));
+        jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel4MouseClicked(evt);

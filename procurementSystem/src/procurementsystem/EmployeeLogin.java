@@ -254,8 +254,9 @@ public class EmployeeLogin extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        WelcomeScreen s=new WelcomeScreen();
-        s.setVisible(true);
+        dispose();
+//        WelcomeScreen s=new WelcomeScreen();
+//        s.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void eidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eidActionPerformed

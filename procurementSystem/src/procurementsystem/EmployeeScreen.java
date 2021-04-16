@@ -724,13 +724,44 @@ public class EmployeeScreen extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-//         int i=e.getIndex();
-//         String id=o.emp.get(i).getEmployeeID();
-//         String name=o.emp.get(i).getName();
-//         for(int j=0;j<o.ass.size();j++){
-//        if(o.ass.get(j).getEmployeeID().equals(id) && o.ass.get(j).getNameEmployee().equals(name) ){
-//            
-//        }
+
+         String id=o.getID();
+         
+         int qty;
+         String prd;
+         for(int j=0;j<o.ass.size();j++){
+        if(o.ass.get(j).getEmployeeID().equals(id) && o.ass.get(j).getNameProduct().equals(attacc.getText())){
+            qty=o.ass.get(j).getQuantity();
+            prd=o.ass.get(j).getNameProduct();
+            o.ass.remove(j);
+            int size=o.pro.size();
+            for(int i=0;i<size;i++){
+             if(o.pro.get(i).getName().equals(prd)){
+                 o.pro.get(i).setQuantity(o.pro.get(i).getQuantity()+qty);
+                 break;
+             }
+         }
+            JOptionPane.showMessageDialog(null,"Accessory Returened...");
+            break;
+        }
+        
+            
+            
+        }
+         int size = o.ass.size();
+        String ID=o.getID();
+        
+            attain.setRowCount(0);
+            for (int i = 0; i < size; i++) {
+                if(o.ass.get(i).getEmployeeID().equals(ID) ){
+                    
+                Object[] obj = {o.ass.get(i).getNameProduct(), o.ass.get(i).getQuantity(),o.ass.get(i).getDateTime()};
+                attain.addRow(obj);
+            }
+            }
+            attacc.setText("");
+            attqty.setText("");
+         
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked

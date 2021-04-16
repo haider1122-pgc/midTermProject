@@ -74,6 +74,7 @@ public class ManagerLogin extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(230, 230, 230));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton3.setText("Login");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -150,6 +151,7 @@ public class ManagerLogin extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(230, 230, 230));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2.setText("Back");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -159,6 +161,7 @@ public class ManagerLogin extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(230, 230, 230));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton4.setText("Exit");
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -261,8 +264,8 @@ public class ManagerLogin extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         dispose();
-        WelcomeScreen s=new WelcomeScreen();
-        s.setVisible(true);
+//        WelcomeScreen s=new WelcomeScreen();
+//        s.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed

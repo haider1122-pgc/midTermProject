@@ -16,6 +16,8 @@ public class Requests {
     private String dateTime;
     private int quantity;
     private String decision;
+    private String email;
+    private String phone;
     
     //getters
     
@@ -115,6 +117,38 @@ public class Requests {
     public void setDecision(String decision) {
         this.decision = decision;
     }
+    /**
+     * getter for email
+     * @return String
+     */
+    public String getEmail() {
+        return email;
+    }
+    /**
+     * getter for phone
+     * @return String
+     */
+    public String getPhone() {
+        return phone;
+    }
+    /**
+     * setter for email
+     * @param email 
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    /**
+     * setter for phone
+     * @param phone 
+     */
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    
+    
+    
+    
     
     
     

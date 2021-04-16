@@ -5,12 +5,15 @@
  */
 package procurementsystem;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Haider
  */
 public class EmployeeLogin extends javax.swing.JFrame {
-
+     Office o = Office.getInstance();
+     int i;
     /**
      * Creates new form EmployeeLogin
      */
@@ -39,8 +42,8 @@ public class EmployeeLogin extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jButton3 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        eid = new javax.swing.JTextField();
+        epass = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -83,19 +86,21 @@ public class EmployeeLogin extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(153, 153, 153));
         jTextField1.setBorder(null);
 
-        jTextField3.setBackground(new java.awt.Color(153, 153, 153));
-        jTextField3.setBorder(null);
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        eid.setBackground(new java.awt.Color(153, 153, 153));
+        eid.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        eid.setBorder(null);
+        eid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                eidActionPerformed(evt);
             }
         });
 
-        jPasswordField1.setBackground(new java.awt.Color(153, 153, 153));
-        jPasswordField1.setBorder(null);
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        epass.setBackground(new java.awt.Color(153, 153, 153));
+        epass.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        epass.setBorder(null);
+        epass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                epassActionPerformed(evt);
             }
         });
 
@@ -111,7 +116,7 @@ public class EmployeeLogin extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3))
+                            .addComponent(eid))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -120,7 +125,7 @@ public class EmployeeLogin extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                            .addComponent(jPasswordField1))))
+                            .addComponent(epass))))
                 .addGap(61, 61, 61))
         );
         jPanel2Layout.setVerticalGroup(
@@ -131,13 +136,13 @@ public class EmployeeLogin extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField3)))
+                        .addComponent(eid)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(epass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
@@ -249,21 +254,44 @@ public class EmployeeLogin extends javax.swing.JFrame {
         s.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void eidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eidActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_eidActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void epassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_epassActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_epassActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         dispose();
-        EmployeeScreen e =new EmployeeScreen();
-        e.setVisible(true);
+        boolean test=false;
+        String e1,e2;
+        e1=eid.getText();
+        e2=epass.getText();
+        for( i=0;i<o.emp.size();i++){
+            if(o.emp.get(i).getEmployeeID().equals(e1) && o.emp.get(i).getPassword().equals(e2) ){
+                EmployeeScreen e =new EmployeeScreen();
+                e.setVisible(true);
+                test=true;
+                break;
+            }
+           
+        }
+         if(test==false){
+           JOptionPane.showMessageDialog(null,"Invalis Id or Password...");
+         }
+          
+                
+           
+        
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    
+    
+    public int getIndex(){
+        return i;
+    }
+    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         dispose();
@@ -305,6 +333,8 @@ public class EmployeeLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField eid;
+    private javax.swing.JPasswordField epass;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -319,10 +349,8 @@ public class EmployeeLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

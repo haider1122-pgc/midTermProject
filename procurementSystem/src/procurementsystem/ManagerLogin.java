@@ -81,6 +81,7 @@ public class ManagerLogin extends javax.swing.JFrame {
         });
 
         jTextField4.setBackground(new java.awt.Color(153, 153, 153));
+        jTextField4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTextField4.setBorder(null);
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +90,7 @@ public class ManagerLogin extends javax.swing.JFrame {
         });
 
         jPasswordField1.setBackground(new java.awt.Color(153, 153, 153));
+        jPasswordField1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPasswordField1.setBorder(null);
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

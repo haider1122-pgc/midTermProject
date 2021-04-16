@@ -572,7 +572,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         Requests r=new  Requests();
-        String r1,r2,r3,r4,r5,r6;
+        String r1,r2,r3,r4,r5,r6,r7;
         r1=ename.getText();
         r2=eemail.getText();
         r3=eacc.getText();
@@ -581,6 +581,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
         int x=Integer.valueOf(r5);
         int i=e.getIndex();
         r6=o.emp.get(i).getEmployeeID();
+        r7=o.Time();
         
         r.setEmployeeID(r6);
         r.setNameEmployee(r1);
@@ -588,6 +589,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
         r.setQuantity(x);
         r.setEmail(r2);
         r.setPhone(r4);
+        r.setDateTime(r7);
         boolean test=false;
         
         for(int j=0;j<o.pro.size();j++){

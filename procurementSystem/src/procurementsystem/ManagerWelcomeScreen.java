@@ -26,6 +26,8 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     DefaultTableModel products;
     String requestHeader[] = new String[]{"ID", "Name", "Accessory","Quantity","Date/Time"};
     DefaultTableModel requests;
+    String assignedHeader[] = new String[]{"Name", "ID", "Accessory","Quantity","Date/Time"};
+    DefaultTableModel assigned;
 
     
     int empRow,empCol,proRow,proCol,reqRow,reqCol;
@@ -41,6 +43,8 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         productsTabel.setModel(products);
         requests= new DefaultTableModel(requestHeader, 0);
         reqTabel.setModel(requests);
+        assigned= new DefaultTableModel(assignedHeader, 0);
+        accTabel.setModel(assigned);
     }
 
     /**
@@ -73,7 +77,6 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -154,7 +157,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jLabel61 = new javax.swing.JLabel();
         jButton18 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        accTabel = new javax.swing.JTable();
         jLabel62 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         jLabel65 = new javax.swing.JLabel();
@@ -197,6 +200,12 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jButton34 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
 
         jPanel7.setBackground(new java.awt.Color(230, 230, 230));
 
@@ -252,9 +261,6 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(230, 230, 230));
         jTextField1.setBorder(null);
 
-        jTextField2.setBackground(new java.awt.Color(230, 230, 230));
-        jTextField2.setBorder(null);
-
         jTextField3.setBackground(new java.awt.Color(230, 230, 230));
         jTextField3.setBorder(null);
 
@@ -281,10 +287,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel7Layout.createSequentialGroup()
                                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,7 +295,8 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                                         .addGap(37, 37, 37)
                                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel12)
-                                            .addComponent(jLabel11)))))))
+                                            .addComponent(jLabel11))))))
+                        .addGap(43, 43, 43))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(280, 280, 280)
                         .addComponent(jLabel1)
@@ -336,10 +340,8 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -1101,7 +1103,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
             }
         });
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        accTabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -1121,7 +1123,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane5.setViewportView(jTable5);
+        jScrollPane5.setViewportView(accTabel);
 
         jLabel64.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jLabel64.setText("Assigned Things");
@@ -1612,10 +1614,47 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
+        Requests s=new Requests();
+        String r1,r2,r3,r4,r5;
+        int qty;
+        r1=o.req.get(reqRow).getNameEmployee();
+        r2=o.req.get(reqRow).getEmployeeID();
+        r3=o.req.get(reqRow).getNameProduct();
+        qty=o.req.get(reqRow).getQuantity();
+        r5=o.Time();
+        //sending data to assigned list
+        s.setNameEmployee(r1);
+        s.setEmployeeID(r2);
+        s.setNameProduct(r3);
+        s.setQuantity(qty);
+        s.setDateTime(r5);
+        o.ass.add(s);
+        //minus the requested quantity
+        int qty1=o.pro.get(reqRow).getQuantity()-qty;
+        o.pro.get(reqRow).setQuantity(qty1);
+        JOptionPane.showMessageDialog(null,"Request Approved...");
+        o.req.remove(reqRow);
+        requests.setRowCount(0);
+        int size = o.req.size();
+        for (int i = 0; i < size; i++) {
+                Object[] obj = {o.req.get(i).getEmployeeID(), o.req.get(i).getNameEmployee(), o.req.get(i).getNameProduct(),o.req.get(i).getQuantity(),o.req.get(i).getDateTime()};
+                requests.addRow(obj);
+            }
+        rid.setText("");
+        
+        
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null,"Request Rejected...");
+        o.req.remove(reqRow);
+        requests.setRowCount(0);
+        int size = o.req.size();
+        for (int i = 0; i < size; i++) {
+                Object[] obj = {o.req.get(i).getEmployeeID(), o.req.get(i).getNameEmployee(), o.req.get(i).getNameProduct(),o.req.get(i).getQuantity(),o.req.get(i).getDateTime()};
+                requests.addRow(obj);
+            }
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
@@ -2005,6 +2044,12 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
     private void jLabel64MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel64MouseClicked
         // TODO add your handling code here:
+        int size = o.ass.size();
+            assigned.setRowCount(0);
+            for (int i = 0; i < size; i++) {
+                Object[] obj = {o.ass.get(i).getNameEmployee(), o.ass.get(i).getEmployeeID(), o.ass.get(i).getNameProduct(),o.ass.get(i).getQuantity(),o.ass.get(i).getDateTime()};
+                assigned.addRow(obj);
+            }
     }//GEN-LAST:event_jLabel64MouseClicked
 
     private void jLabel66MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel66MouseClicked
@@ -2023,6 +2068,10 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         reqCol=reqTabel.getColumnCount();
         rid.setText(requests.getValueAt(reqRow, 0).toString());
     }//GEN-LAST:event_reqTabelMouseClicked
+
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -2058,6 +2107,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable accTabel;
     private javax.swing.JTextField aname;
     private javax.swing.JTextField aprice;
     private javax.swing.JTextField aquantity;
@@ -2192,10 +2242,8 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JRadioButton m;
     private javax.swing.JTable productsTabel;

@@ -11,12 +11,14 @@ import java.util.ArrayList;
  *
  * @author Haider
  */
+import java.sql.Timestamp;
 public class Office {
     
    public ArrayList<Employee> emp = new ArrayList<>();
    public ArrayList<accessoryManager> man = new ArrayList<>();
    public ArrayList<Products> pro = new ArrayList<>();
    public ArrayList<Requests> req = new ArrayList<>();
+   public ArrayList<Requests>ass=new ArrayList<>();
     static Office o=null;
    //////////////////////////////////////////////////////////////////////////
          /**
@@ -99,6 +101,12 @@ public class Office {
     public void editProduct(int x, Products y){
         pro.set(x,y);
         
+    }
+    
+    public String Time() {
+        Timestamp time1=new Timestamp(System.currentTimeMillis());
+     String str=time1.toString();
+     return str;
     }
     
     

@@ -604,6 +604,11 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel14.setText("( click )");
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -932,6 +937,11 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jLabel63.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel63.setText("( click )");
+        jLabel63.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel63MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -1136,6 +1146,12 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jLabel65.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel65.setText("( click )");
+        jLabel65.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel65.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel65MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -1312,6 +1328,12 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jLabel67.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel67.setText("( click )");
+        jLabel67.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel67.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel67MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1814,13 +1836,21 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         e7 = ephone.getText();
         e8 = ecnic.getText();
         e9 = edob.getText();
-
+          
         //for input through radio buttons
         m.setActionCommand("M");
         f.setActionCommand("F");
         String g = buttonGroup1.getSelection().getActionCommand();
         gnd = g;
         e10 = gnd.charAt(0);
+        boolean test1=true;
+        int size0=o.emp.size();
+        for(int i=0;i<size0;i++){
+            if(o.emp.get(i).getEmployeeID().equals(e2)){
+                test1=false;
+            }
+        }
+        if(test1==true){
         //setting data to class
         e.setName(e1);
         e.setCnic(e8);
@@ -1854,9 +1884,15 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
             ephone.setText("");
             ecnic.setText("");
             edob.setText("");
-        } else {
+        } else 
+        {
             JOptionPane.showMessageDialog(null, "Failed to register!!!\nInvalid DATA Input...");
 
+        }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Failed to register!!!\nUser already exists...");
         }
 
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -2072,6 +2108,46 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
         // TODO add your handling code here
     }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void jLabel67MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel67MouseClicked
+        // TODO add your handling code here:
+        int size = o.req.size();
+            requests.setRowCount(0);
+            for (int i = 0; i < size; i++) {
+                Object[] obj = {o.req.get(i).getEmployeeID(), o.req.get(i).getNameEmployee(), o.req.get(i).getNameProduct(),o.req.get(i).getQuantity(),o.req.get(i).getDateTime()};
+                requests.addRow(obj);
+            }
+    }//GEN-LAST:event_jLabel67MouseClicked
+
+    private void jLabel65MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel65MouseClicked
+        // TODO add your handling code here:
+        int size = o.ass.size();
+            assigned.setRowCount(0);
+            for (int i = 0; i < size; i++) {
+                Object[] obj = {o.ass.get(i).getNameEmployee(), o.ass.get(i).getEmployeeID(), o.ass.get(i).getNameProduct(),o.ass.get(i).getQuantity(),o.ass.get(i).getDateTime()};
+                assigned.addRow(obj);
+            }
+    }//GEN-LAST:event_jLabel65MouseClicked
+
+    private void jLabel63MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel63MouseClicked
+        // TODO add your handling code here:
+        int size = o.pro.size();
+            products.setRowCount(0);
+            for (int i = 0; i < size; i++) {
+                Object[] obj = {o.pro.get(i).getName(), o.pro.get(i).getQuantity(), o.pro.get(i).getPrice()};
+                products.addRow(obj);
+            }
+    }//GEN-LAST:event_jLabel63MouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        // TODO add your handling code here:
+        int size = o.emp.size();
+            employee.setRowCount(0);
+            for (int i = 0; i < size; i++) {
+                Object[] obj = {o.emp.get(i).getName(), o.emp.get(i).getEmployeeID(), o.emp.get(i).getDesignation(), o.emp.get(i).getEmail(),o.emp.get(i).getCountry(),o.emp.get(i).getDob(),o.emp.get(i).getPhone(),o.emp.get(i).getCnic(),o.emp.get(i).getPassword(), o.emp.get(i).getGender()};
+                employee.addRow(obj);
+            }
+    }//GEN-LAST:event_jLabel14MouseClicked
 
     /**
      * @param args the command line arguments

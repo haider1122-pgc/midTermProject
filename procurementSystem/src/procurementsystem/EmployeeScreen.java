@@ -21,8 +21,10 @@ public class EmployeeScreen extends javax.swing.JFrame {
     
     String productHeader[] = new String[]{"Name", "Quantity"};
     DefaultTableModel products;
-    int proRow;
-    int proCol;
+    String attainHeader[] = new String[]{"Name", "Quantity","Date/Time"};
+    DefaultTableModel attain;
+    int proRow,attRow;
+    int proCol,attCol;
     
     /**
      * Creates new form EmployeeScreen
@@ -31,6 +33,8 @@ public class EmployeeScreen extends javax.swing.JFrame {
         initComponents();
         products = new DefaultTableModel(productHeader, 0);
         productsTabel.setModel(products);
+         attain = new DefaultTableModel(attainHeader, 0);
+        attTabel.setModel(attain);
     }
 
     /**
@@ -78,14 +82,14 @@ public class EmployeeScreen extends javax.swing.JFrame {
         jLabel60 = new javax.swing.JLabel();
         jButton17 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        attTabel = new javax.swing.JTable();
         jLabel62 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        pname1 = new javax.swing.JTextField();
+        attacc = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
-        pname2 = new javax.swing.JTextField();
+        attqty = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -216,6 +220,11 @@ public class EmployeeScreen extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel3.setText("( click )");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/ball_point_pen_30px.png"))); // NOI18N
 
@@ -384,7 +393,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
             }
         });
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        attTabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -404,31 +413,41 @@ public class EmployeeScreen extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane5.setViewportView(jTable5);
+        attTabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                attTabelMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(attTabel);
 
         jButton6.setBackground(new java.awt.Color(153, 153, 153));
         jButton6.setText("Return");
         jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/return_30px.png"))); // NOI18N
 
         jLabel27.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel27.setText("Accessory :");
 
-        pname1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pname1.addActionListener(new java.awt.event.ActionListener() {
+        attacc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        attacc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pname1ActionPerformed(evt);
+                attaccActionPerformed(evt);
             }
         });
 
         jLabel33.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel33.setText("Quantity :");
 
-        pname2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pname2.addActionListener(new java.awt.event.ActionListener() {
+        attqty.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        attqty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pname2ActionPerformed(evt);
+                attqtyActionPerformed(evt);
             }
         });
 
@@ -443,6 +462,11 @@ public class EmployeeScreen extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel6.setText("( click )");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -473,8 +497,8 @@ public class EmployeeScreen extends javax.swing.JFrame {
                             .addComponent(jLabel33))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pname2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pname1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(attqty, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(attacc, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap(284, Short.MAX_VALUE)
@@ -508,11 +532,11 @@ public class EmployeeScreen extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
-                    .addComponent(pname1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(attacc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel33)
-                    .addComponent(pname2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(attqty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -579,8 +603,9 @@ public class EmployeeScreen extends javax.swing.JFrame {
         r4=ephone.getText();
         r5= (String)equantity.getSelectedItem();
         int x=Integer.valueOf(r5);
-        int i=e.getIndex();
-        r6=o.emp.get(i).getEmployeeID();
+        
+        
+        r6=o.getID();
         r7=o.Time();
         
         r.setEmployeeID(r6);
@@ -593,7 +618,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
         boolean test=false;
         
         for(int j=0;j<o.pro.size();j++){
-        if(o.pro.get(j).getName().equals(r3) && o.pro.get(j).getQuantity()!=0){
+        if(o.pro.get(j).getName().equals(r3) && o.pro.get(j).getQuantity()!=0 && o.pro.get(j).getQuantity()>x){
         o.req.add(r);
         JOptionPane.showMessageDialog(null,"Request Send...");
         eacc.setText("");
@@ -636,20 +661,27 @@ public class EmployeeScreen extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void pname1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pname1ActionPerformed
+    private void attaccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attaccActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pname1ActionPerformed
+    }//GEN-LAST:event_attaccActionPerformed
 
-    private void pname2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pname2ActionPerformed
+    private void attqtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attqtyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pname2ActionPerformed
+    }//GEN-LAST:event_attqtyActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-      int i=e.getIndex();
-      ename.setText(o.emp.get(i).getName());
-      eemail.setText(o.emp.get(i).getEmail());
-      ephone.setText(o.emp.get(i).getPhone());
+      
+      int size=o.emp.size();
+      String ID=o.getID();
+      for(int i=0;i<size;i++){
+          if(o.emp.get(i).getEmployeeID().equals(ID)){
+              ename.setText(o.emp.get(i).getName());
+              eemail.setText(o.emp.get(i).getEmail());
+              ephone.setText(o.emp.get(i).getPhone());
+          }
+      }
+      
       
       
         
@@ -659,7 +691,63 @@ public class EmployeeScreen extends javax.swing.JFrame {
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
+        int size = o.ass.size();
+        String id=o.getID();
+        
+            attain.setRowCount(0);
+            for (int i = 0; i < size; i++) {
+                if(o.ass.get(i).getEmployeeID().equals(id) ){
+                    
+                Object[] obj = {o.ass.get(i).getNameProduct(), o.ass.get(i).getQuantity(),o.ass.get(i).getDateTime()};
+                attain.addRow(obj);
+            }
+            }
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        int size = o.pro.size();
+            products.setRowCount(0);
+            for (int i = 0; i < size; i++) {
+                Object[] obj = {o.pro.get(i).getName(), o.pro.get(i).getQuantity()};
+                products.addRow(obj);
+            }
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void attTabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attTabelMouseClicked
+        // TODO add your handling code here:
+         attRow=attTabel.getSelectedRow();
+        attCol=attTabel.getColumnCount();
+        attacc.setText(attain.getValueAt(proRow, 0).toString());
+        attqty.setText(attain.getValueAt(proRow, 1).toString());
+    }//GEN-LAST:event_attTabelMouseClicked
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+//         int i=e.getIndex();
+//         String id=o.emp.get(i).getEmployeeID();
+//         String name=o.emp.get(i).getName();
+//         for(int j=0;j<o.ass.size();j++){
+//        if(o.ass.get(j).getEmployeeID().equals(id) && o.ass.get(j).getNameEmployee().equals(name) ){
+//            
+//        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:1
+        int size = o.ass.size();
+        
+        String id=o.getID();
+            attain.setRowCount(0);
+            for (int i = 0; i < size; i++) {
+                if(o.ass.get(i).getEmployeeID().equals(id)){
+            
+            
+                Object[] obj = {o.ass.get(i).getNameProduct(), o.ass.get(i).getQuantity(),o.ass.get(i).getDateTime()};
+                attain.addRow(obj);
+            }
+            }
+    }//GEN-LAST:event_jLabel6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -697,6 +785,9 @@ public class EmployeeScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable attTabel;
+    private javax.swing.JTextField attacc;
+    private javax.swing.JTextField attqty;
     private javax.swing.JTextField eacc;
     private javax.swing.JTextField eemail;
     private javax.swing.JTextField ename;
@@ -738,10 +829,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JTextField pname1;
-    private javax.swing.JTextField pname2;
     private javax.swing.JTable productsTabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 public class EmployeeLogin extends javax.swing.JFrame {
      Office o = Office.getInstance();
      int i;
+     String e1,e2;
     /**
      * Creates new form EmployeeLogin
      */
@@ -269,11 +270,12 @@ public class EmployeeLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         boolean test=false;
-        String e1,e2;
+        
         e1=eid.getText();
         e2=epass.getText();
         for( i=0;i<o.emp.size();i++){
             if(o.emp.get(i).getEmployeeID().equals(e1) && o.emp.get(i).getPassword().equals(e2) ){
+                o.setID(e1);
                 EmployeeScreen e =new EmployeeScreen();
                 e.setVisible(true);
                 test=true;
@@ -291,9 +293,16 @@ public class EmployeeLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
     
     
-    public int getIndex(){
-        return i;
-    }
+//    public int getIndex(){
+//        return i;
+//    }
+//    public String getID(){
+//    e1=eid.getText();
+//    return e1;
+//    }
+//    public String getPass(){
+//    return e2;
+//    }
     
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:

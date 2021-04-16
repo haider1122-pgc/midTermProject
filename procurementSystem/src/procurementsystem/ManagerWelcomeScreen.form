@@ -1106,6 +1106,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="( click )"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel14MouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1572,6 +1575,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="( click )"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel63MouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1828,7 +1834,13 @@
                   <Font name="Tahoma" size="11" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="( click )"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel65MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -2193,7 +2205,13 @@
                   <Font name="Tahoma" size="11" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="( click )"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel67MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

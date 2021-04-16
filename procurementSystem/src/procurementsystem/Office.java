@@ -19,7 +19,8 @@ public class Office {
    public ArrayList<Products> pro = new ArrayList<>();
    public ArrayList<Requests> req = new ArrayList<>();
    public ArrayList<Requests>ass=new ArrayList<>();
-    static Office o=null;
+   static Office o=null;
+  
    //////////////////////////////////////////////////////////////////////////
          /**
           * to let the office class behaves singleton behavior
@@ -102,12 +103,26 @@ public class Office {
         pro.set(x,y);
         
     }
-    
+    /**
+     * function for current date and time
+     * @return String
+     */
     public String Time() {
         Timestamp time1=new Timestamp(System.currentTimeMillis());
      String str=time1.toString();
      return str;
     }
+    ///////////////////////////////////////////////////////////////////////////
+    private String ID;
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+    
     
     
     

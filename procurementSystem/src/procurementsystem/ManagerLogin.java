@@ -9,8 +9,9 @@ package procurementsystem;
  *
  * @author Haider
  */
+import javax.swing.JOptionPane;
 public class ManagerLogin extends javax.swing.JFrame {
-
+  Office o = Office.getInstance();
     /**
      * Creates new form ManagerLogin
      */
@@ -38,8 +39,8 @@ public class ManagerLogin extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jButton3 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        mid = new javax.swing.JTextField();
+        mpass = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -81,21 +82,21 @@ public class ManagerLogin extends javax.swing.JFrame {
             }
         });
 
-        jTextField4.setBackground(new java.awt.Color(153, 153, 153));
-        jTextField4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jTextField4.setBorder(null);
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        mid.setBackground(new java.awt.Color(153, 153, 153));
+        mid.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        mid.setBorder(null);
+        mid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                midActionPerformed(evt);
             }
         });
 
-        jPasswordField1.setBackground(new java.awt.Color(153, 153, 153));
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPasswordField1.setBorder(null);
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        mpass.setBackground(new java.awt.Color(153, 153, 153));
+        mpass.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        mpass.setBorder(null);
+        mpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                mpassActionPerformed(evt);
             }
         });
 
@@ -109,7 +110,7 @@ public class ManagerLogin extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField4))
+                        .addComponent(mid))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
@@ -117,7 +118,7 @@ public class ManagerLogin extends javax.swing.JFrame {
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPasswordField1))))
+                            .addComponent(mpass))))
                 .addGap(61, 61, 61))
         );
         jPanel2Layout.setVerticalGroup(
@@ -129,13 +130,13 @@ public class ManagerLogin extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addGap(4, 4, 4))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField4)
+                        .addComponent(mid)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
@@ -203,7 +204,7 @@ public class ManagerLogin extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel21))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
@@ -244,7 +245,7 @@ public class ManagerLogin extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(45, Short.MAX_VALUE))))
+                        .addContainerGap(46, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -268,18 +269,26 @@ public class ManagerLogin extends javax.swing.JFrame {
 //        s.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void midActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_midActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_midActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void mpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpassActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_mpassActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        ManagerWelcomeScreen s=new ManagerWelcomeScreen();
+        accessoryManager a=new accessoryManager();
+        o.man.add(a);
+        int i=0;
+        if(mid.getText().equals(o.man.get(i).getManagerID()) && mpass.getText().equals(o.man.get(i).getPassword()) || (mid.getText().equals("123") && mpass.getText().equals("123")) ){
+            ManagerWelcomeScreen s=new ManagerWelcomeScreen();
         s.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Incalid credentials...");
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -289,8 +298,8 @@ public class ManagerLogin extends javax.swing.JFrame {
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
-        editManager e=new editManager();
-        e.setVisible(true);
+        loginAdmin a=new loginAdmin();
+        a.setVisible(true);
     }//GEN-LAST:event_jLabel9MouseClicked
 
     /**
@@ -309,22 +318,16 @@ public class ManagerLogin extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManagerLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManagerLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManagerLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ManagerLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ManagerLogin().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new ManagerLogin().setVisible(true);
         });
     }
 
@@ -344,9 +347,9 @@ public class ManagerLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField mid;
+    private javax.swing.JPasswordField mpass;
     // End of variables declaration//GEN-END:variables
 }

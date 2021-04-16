@@ -5,12 +5,14 @@
  */
 package procurementsystem;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Haider
  */
 public class editManager extends javax.swing.JFrame {
-
+      Office o = Office.getInstance();
     /**
      * Creates new form editManager
      */
@@ -33,8 +35,6 @@ public class editManager extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         ename = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -56,6 +56,11 @@ public class editManager extends javax.swing.JFrame {
         jLabel74 = new javax.swing.JLabel();
         edob = new javax.swing.JTextField();
         ecity = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        mgr = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,18 +76,6 @@ public class editManager extends javax.swing.JFrame {
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/icons8_360_degrees_50px_1.png"))); // NOI18N
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/icons8_360_degrees_50px_2.png"))); // NOI18N
-
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/exit_30px.png"))); // NOI18N
-
-        jButton5.setBackground(new java.awt.Color(230, 230, 230));
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton5.setText("Exit");
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel13.setText("City :");
@@ -117,6 +110,19 @@ public class editManager extends javax.swing.JFrame {
         });
 
         eid.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        eid.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                eidMouseDragged(evt);
+            }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                eidMouseMoved(evt);
+            }
+        });
+        eid.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                eidMouseExited(evt);
+            }
+        });
         eid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eidActionPerformed(evt);
@@ -199,6 +205,32 @@ public class editManager extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setBackground(new java.awt.Color(153, 153, 153));
+        jButton6.setText("Auto Fill");
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/ball_point_pen_30px.png"))); // NOI18N
+
+        jButton5.setBackground(new java.awt.Color(230, 230, 230));
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton5.setText("Exit");
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/exit_30px.png"))); // NOI18N
+
+        mgr.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        mgr.setForeground(new java.awt.Color(255, 51, 51));
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -206,33 +238,12 @@ public class editManager extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(eid, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel74))
-                                .addGap(19, 19, 19)
-                                .addComponent(ename, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(edob, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel9Layout.createSequentialGroup()
-                                    .addComponent(m)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(f))
-                                .addComponent(ecity, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel22))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel30)
@@ -249,33 +260,62 @@ public class editManager extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ecnic, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel26)
+                                .addComponent(ecnic, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addGap(280, 280, 280)
+                                .addComponent(jLabel19)
+                                .addGap(2, 2, 2)
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel24))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(eid, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel9Layout.createSequentialGroup()
+                                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel74))
+                                        .addGap(19, 19, 19)
+                                        .addComponent(ename, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(edob, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel9Layout.createSequentialGroup()
+                                            .addComponent(m)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(f))
+                                        .addComponent(ecity, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(mgr, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(280, 280, 280))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addGap(316, 316, 316)
+                                .addComponent(jLabel31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton4)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel9Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton6))
+                                    .addGroup(jPanel9Layout.createSequentialGroup()
+                                        .addGap(178, 178, 178)
+                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel26)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(198, 198, 198)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(217, 217, 217))
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addComponent(jLabel19)
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel20)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel24))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(316, 316, 316)
-                        .addComponent(jLabel31)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)))
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+            .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel19)
                     .addComponent(jLabel20)
@@ -293,7 +333,8 @@ public class editManager extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel15)
-                        .addComponent(eid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(eid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mgr, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel25)
                         .addComponent(epassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -317,21 +358,24 @@ public class editManager extends javax.swing.JFrame {
                             .addComponent(jLabel18)
                             .addComponent(ecity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(m)
                             .addComponent(f))))
+                .addGap(83, 83, 83)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(242, 242, 242)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(125, 125, 125)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton5)
-                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel31))))
-                .addGap(18, 18, Short.MAX_VALUE))
+                        .addComponent(jLabel31)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -358,6 +402,7 @@ public class editManager extends javax.swing.JFrame {
 
     private void eidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eidActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_eidActionPerformed
 
     private void eemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eemailActionPerformed
@@ -382,6 +427,70 @@ public class editManager extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        accessoryManager a=new accessoryManager();
+        int i=0;
+       o.man.add(a);
+       
+        o.man.get(i).setName(ename.getText());
+        o.man.get(i).setCnic(ecnic.getText());
+        o.man.get(i).setCountry(ecity.getText());
+        o.man.get(i).setDob(edob.getText());
+        o.man.get(i).setManagerID(eid.getText());
+        o.man.get(i).setEmail(eemail.getText());
+        o.man.get(i).setPassword(epassword.getText());
+        o.man.get(i).setPhone(ephone.getText());
+            char e10;
+        m.setActionCommand("M");
+        f.setActionCommand("F");
+        String g = buttonGroup1.getSelection().getActionCommand();
+        String gnd = g;
+        e10 = gnd.charAt(0);
+        o.man.get(i).setGender(e10);
+        
+        boolean check=o.man.get(i).validateID();
+        if(check==true){
+        JOptionPane.showMessageDialog(null,"Updated Successfully...");
+       ename.setText("");
+       ecnic.setText("");
+       ecity.setText("");
+       edob.setText("");
+       eid.setText("");
+       eemail.setText("");
+       epassword.setText("");
+       ephone.setText("");
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Invalid Manager ID...");
+            o.man.remove(i);
+        }
+        
+//        String e1,e2,e3,e4,e5,e6,e7,e8;
+        
+//        e1=ename.getText();
+//        e2=ecnic.getText();
+//        e3=ecity.getText();
+//        e4=edob.getText();
+//        e5=eid.getText();
+//        e6=eemail.getText();
+//        e7=epassword.getText();
+//        e8=ephone.getText();
+//        m.setActionCommand("M");
+//        f.setActionCommand("F");
+//        String g = buttonGroup1.getSelection().getActionCommand();
+//        String gnd = g;
+//         e10 = gnd.charAt(0);
+//       
+//        a.setName(e1);
+//        a.setCnic(e2);
+//        a.setCountry(e3);
+//        a.setEmail(e6);
+//        a.setEmployeeID(e5);
+//        a.setGender(e10);
+//        a.setPhone(e8);
+//        a.setDob(e4);
+//        a.setPassword(e7);
+//        
+//        o.man.add(a);
         
 
         
@@ -401,6 +510,35 @@ public class editManager extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        int i=0;
+        ename.setText(o.man.get(i).getName());
+       ecnic.setText(o.man.get(i).getCnic() );
+       ecity.setText(o.man.get(i).getCountry());
+       edob.setText(o.man.get(i).getDob());
+       eid.setText(o.man.get(i).getManagerID());
+       eemail.setText(o.man.get(i).getEmail());
+       epassword.setText(o.man.get(i).getPassword());
+       ephone.setText(o.man.get(i).getPhone());
+
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void eidMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eidMouseDragged
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_eidMouseDragged
+
+    private void eidMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eidMouseMoved
+        // TODO add your handling code here:
+         mgr.setText("( Mgr-*** )");
+    }//GEN-LAST:event_eidMouseMoved
+
+    private void eidMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eidMouseExited
+        // TODO add your handling code here:
+        mgr.setText("");
+    }//GEN-LAST:event_eidMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -417,22 +555,16 @@ public class editManager extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(editManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(editManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(editManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(editManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new editManager().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new editManager().setVisible(true);
         });
     }
 
@@ -449,6 +581,7 @@ public class editManager extends javax.swing.JFrame {
     private javax.swing.JRadioButton f;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
@@ -462,9 +595,11 @@ public class editManager extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton m;
+    private javax.swing.JLabel mgr;
     // End of variables declaration//GEN-END:variables
 }

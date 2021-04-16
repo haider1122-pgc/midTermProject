@@ -113,6 +113,7 @@ public class Office {
      return str;
     }
     ///////////////////////////////////////////////////////////////////////////
+   // this data member is used to access id entered in employee login screen in employee welcome screen
     private String ID;
 
     public String getID() {

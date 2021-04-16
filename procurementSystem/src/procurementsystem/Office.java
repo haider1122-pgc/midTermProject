@@ -5,6 +5,9 @@
  */
 package procurementsystem;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -49,6 +52,9 @@ public class Office {
         // TODO code application logic here
         WelcomeScreen s=new WelcomeScreen();
         s.setVisible(true);
+        //loading data
+       
+      
       
        
        
@@ -125,7 +131,48 @@ public class Office {
     }
     
     
-    
+    //////////////////////////////////////////////////////////////////////////
+
+    /**
+     * function to load employee data
+     */
+    public void loadEmployee(){
+         
+     try {
+         try (FileReader fr = new FileReader("Employee.txt"); BufferedReader br = new BufferedReader(fr)) {
+             
+             String line;
+             
+             line = br.readLine();
+             while(line != null)
+             {
+                 Employee e = new Employee();
+                 String[] str = line.split(",");
+                 
+                 e.setName(str[0]);
+                 e.setEmployeeID(str[1]);
+                 e.setPassword(str[2]);
+                 e.setGender(str[3].charAt(0));
+                 e.setPhone(str[4]);
+                 e.setEmail(str[5]);
+                 e.setDesignation(str[6]);
+                 e.setCountry(str[7]);
+                 e.setCnic(str[8]);
+                 e.setDob(str[9]);
+                 
+                 emp.add(e);
+                 
+             }
+             
+             
+             
+             
+             
+         }
+        } catch (IOException ex) {
+           
+        }
+    }
     
 }
  

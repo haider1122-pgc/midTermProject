@@ -5,6 +5,9 @@
  */
 package procurementsystem;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
@@ -331,10 +334,10 @@ public class editManager extends javax.swing.JFrame {
                     .addComponent(ename, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mgr, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel15)
-                        .addComponent(eid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(mgr, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(eid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel25)
                         .addComponent(epassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -364,10 +367,10 @@ public class editManager extends javax.swing.JFrame {
                 .addGap(83, 83, 83)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(125, 125, 125)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton5)
@@ -463,6 +466,28 @@ public class editManager extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Invalid Manager ID...");
             o.man.remove(i);
         }
+         boolean flag= false;
+        try {
+            FileWriter fw = new FileWriter("Manager.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            for(int j = 0 ; j < o.emp.size();j++)
+            {
+                bw.write(o.man.get(j).getName()+","+o.man.get(j).getManagerID()+","+o.man.get(j).getPassword()+","+o.man.get(j).getGender()+","+o.man.get(j).getPhone()+","+o.man.get(j).getEmail()+","+o.man.get(j).getCountry()+","+o.man.get(j).getCnic()+","+o.man.get(j).getDob()+"\n");
+            }
+            bw.flush();
+            bw.close();
+            fw.close();
+            flag= true;
+        } catch (IOException ex) {
+            flag= false;
+        }
+        
+        if(flag==true){
+              //JOptionPane.showMessageDialog(null,"Admin Data is saved successfully...");
+        }
+        else{
+            //JOptionPane.showMessageDialog(null,"Failed to save data....");
+        }
         
 //        String e1,e2,e3,e4,e5,e6,e7,e8;
         
@@ -512,6 +537,9 @@ public class editManager extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+         accessoryManager a=new accessoryManager();
+        
+       o.man.add(a);
         int i=0;
         ename.setText(o.man.get(i).getName());
        ecnic.setText(o.man.get(i).getCnic() );

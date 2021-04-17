@@ -5,8 +5,6 @@
  */
 package procurementsystem;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Haider
@@ -158,7 +156,7 @@ public class Person {
                 }
             }
         }
-        if (check1==true &&check == true) {
+        if (check1 == true && check == true) {
             this.employeeID = employeeID;
             t2 = true;
 
@@ -219,14 +217,12 @@ public class Person {
             if (check == true) {
                 this.phone = phone;
                 t4 = true;
-            }
-            else {
+            } else {
                 t4 = false;
             }
 
-        }
-        else {
-             t4 = false;
+        } else {
+            t4 = false;
         }
     }
 
@@ -285,25 +281,25 @@ public class Person {
             if (check == true) {
                 this.cnic = cnic;
                 t5 = true;
-            }
-            else {
+            } else {
                 t5 = false;
             }
 
-        }
-        else {
-             t5 = false;
+        } else {
+            t5 = false;
         }
     }
+
     //function to test whether all data is validated or not
     /**
      * function to validate that all the data is authentic
+     *
      * @return Boolean
      */
-    public boolean validation(){
+    public boolean validation() {
         //JOptionPane.showMessageDialog(null,t1+"\n"+t2+"\n"+t3+"\n"+t4+"\n"+t5+"\n");
-        return t1==true && t2==true && t3==true && t4==true && t5==true;
-        
+        return t1 == true && t2 == true && t3 == true && t4 == true && t5 == true;
+
     }
 
 }

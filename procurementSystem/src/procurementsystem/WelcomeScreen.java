@@ -268,13 +268,13 @@ public class WelcomeScreen extends javax.swing.JFrame {
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
         // TODO add your handling code here:
-        EmployeeLogin e=new  EmployeeLogin();
+        EmployeeLogin e = new EmployeeLogin();
         e.setVisible(true);
     }//GEN-LAST:event_jPanel2MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
-        ManagerLogin m=new ManagerLogin();
+        ManagerLogin m = new ManagerLogin();
         m.setVisible(true);
     }//GEN-LAST:event_jLabel2MouseClicked
 
@@ -285,14 +285,14 @@ public class WelcomeScreen extends javax.swing.JFrame {
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
         // TODO add your handling code here:
-        ManagerLogin m=new ManagerLogin();
+        ManagerLogin m = new ManagerLogin();
         m.setVisible(true);
-        
+
     }//GEN-LAST:event_jPanel3MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         // TODO add your handling code here:
-       ManagerLogin m=new ManagerLogin();
+        ManagerLogin m = new ManagerLogin();
         m.setVisible(true);
     }//GEN-LAST:event_jLabel10MouseClicked
 

@@ -10,8 +10,11 @@ package procurementsystem;
  * @author Haider
  */
 import javax.swing.JOptionPane;
+
 public class ManagerLogin extends javax.swing.JFrame {
-  Office o = Office.getInstance();
+
+    Office o = Office.getInstance();
+
     /**
      * Creates new form ManagerLogin
      */
@@ -279,14 +282,13 @@ public class ManagerLogin extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
-        int i=0;
-        if(mid.getText().equals(o.man.get(i).getManagerID()) && mpass.getText().equals(o.man.get(i).getPassword()) || (mid.getText().equals("123") && mpass.getText().equals("123")) ){
-            ManagerWelcomeScreen s=new ManagerWelcomeScreen();
-        s.setVisible(true);
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Invalid credentials...");
+
+        int i = 0;
+        if (mid.getText().equals(o.man.get(i).getManagerID()) && mpass.getText().equals(o.man.get(i).getPassword()) || (mid.getText().equals("123") && mpass.getText().equals("123"))) {
+            ManagerWelcomeScreen s = new ManagerWelcomeScreen();
+            s.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Invalid credentials...");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -297,7 +299,7 @@ public class ManagerLogin extends javax.swing.JFrame {
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
-        loginAdmin a=new loginAdmin();
+        loginAdmin a = new loginAdmin();
         a.setVisible(true);
     }//GEN-LAST:event_jLabel9MouseClicked
 
@@ -321,7 +323,7 @@ public class ManagerLogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ManagerLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */

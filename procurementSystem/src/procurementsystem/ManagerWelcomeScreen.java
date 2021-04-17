@@ -5,11 +5,23 @@
  */
 package procurementsystem;
 
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfWriter;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
+
 
 /**
  *
@@ -164,6 +176,8 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jLabel62 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         jLabel65 = new javax.swing.JLabel();
+        jLabel70 = new javax.swing.JLabel();
+        jButton37 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
@@ -1179,6 +1193,19 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
             }
         });
 
+        jLabel70.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/pdf_30px.png"))); // NOI18N
+        jLabel70.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jButton37.setBackground(new java.awt.Color(153, 153, 153));
+        jButton37.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton37.setText("Generate PDF");
+        jButton37.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton37jButton21ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
@@ -1205,6 +1232,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                 .addContainerGap(247, Short.MAX_VALUE)
                 .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(242, 242, 242))
+            .addComponent(jScrollPane5)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel13Layout.createSequentialGroup()
@@ -1214,9 +1242,13 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(297, 297, 297)
+                        .addComponent(jLabel70)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane5)
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1236,7 +1268,11 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel62)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel70)
+                    .addComponent(jButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2386,6 +2422,71 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(null,"All Data saved successfully...");
     }//GEN-LAST:event_jButton32jButton21ActionPerformed
 
+    private void jButton37jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37jButton21ActionPerformed
+        // TODO add your handling code here:
+        String path="";
+        JFileChooser j= new JFileChooser();
+        j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int k= j.showSaveDialog(this);
+        
+        if(k== JFileChooser.APPROVE_OPTION)
+        {
+            path=j.getSelectedFile().getPath();
+        }
+        
+        Document doc= new Document();
+        
+       try {
+           PdfWriter.getInstance(doc,new FileOutputStream(path+"Assign.pdf"));
+
+           doc.open();
+           doc.add(new Paragraph("                                         $$---------( Procurement Management System )---------$$"));
+         
+           doc.add(new Paragraph("                                                          &----( Assigned Items Details )----&\n"));
+           doc.add(new Paragraph("\n"));
+
+           doc.add(new Paragraph("Assigned Items :"));
+            doc.add(new Paragraph("\n"));
+
+           PdfPTable tab1e= new PdfPTable(5);
+           
+           tab1e.addCell("Name of Employee");
+           tab1e.addCell("ID of Employee");
+           tab1e.addCell("Accessory");
+           tab1e.addCell("Quantity");
+           tab1e.addCell("Date/Time");
+           int rowcnt=accTabel.getRowCount();
+           for (int i = 0; i <rowcnt ; i++) {
+               String empName= accTabel.getValueAt(i, 0).toString();
+               String empId= accTabel.getValueAt(i, 1).toString();
+               String accessory= accTabel.getValueAt(i, 2).toString();
+               String quantity= accTabel.getValueAt(i, 3).toString();
+               String time= accTabel.getValueAt(i, 4).toString();
+               
+               
+               tab1e.addCell(empName);
+               tab1e.addCell(empId);
+               tab1e.addCell(accessory);
+               tab1e.addCell(quantity);
+               tab1e.addCell(time);
+               
+           }
+            String[] Date = o.Time().split(" ");
+           doc.add(tab1e);
+           doc.add(new Paragraph("\n"));
+           doc.add(new Paragraph("Signature :_____________                                                            Date/Time : "+Date[0]));
+            JOptionPane.showMessageDialog(null,"PDF Generated Successfully...\nPath: "+path);
+           
+           
+       } catch (FileNotFoundException | DocumentException ex) {
+           Logger.getLogger(ManagerWelcomeScreen.class.getName()).log(Level.SEVERE, null, ex);
+       }
+        
+        
+        doc.close();
+        
+    }//GEN-LAST:event_jButton37jButton21ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2451,6 +2552,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
+    private javax.swing.JButton jButton37;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -2524,6 +2626,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;

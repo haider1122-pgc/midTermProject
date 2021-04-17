@@ -9,22 +9,26 @@ package procurementsystem;
  *
  * @author Haider
  */
- public class accessoryManager extends Person {
-     private String managerID;
-     boolean check0=false;
-    
-     /**
-      * getter for manager ID
-      * @return 
-      */
+public class accessoryManager extends Person {
+
+    private String managerID;
+    boolean check0 = false;
+
+    /**
+     * getter for manager ID
+     *
+     * @return
+     */
     public String getManagerID() {
         return managerID;
     }
-     /**
-      * setter for manager id
-      * @param managerID 
-      */
-     public void setManagerID(String managerID) {
+
+    /**
+     * setter for manager id
+     *
+     * @param managerID
+     */
+    public void setManagerID(String managerID) {
         boolean check1 = false, check = true;
         int size = managerID.length();
         if (managerID.charAt(0) == 'M') {
@@ -44,22 +48,24 @@ package procurementsystem;
                 }
             }
         }
-        if (check1==true &&check == true) {
+        if (check1 == true && check == true) {
             this.managerID = managerID;
-            check0=true;
+            check0 = true;
             t2 = true;
 
         } else {
 
             t2 = false;
-            
 
         }
     }
-     
-     public boolean validateID(){
-         return check0;
-         
-     }
-    
+    /**
+     * check validation of manager id
+     * @return Boolean
+     */
+    public boolean validateID() {
+        return check0;
+
+    }
+
 }

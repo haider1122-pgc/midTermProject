@@ -188,6 +188,9 @@ public class Office {
         }
     }
 
+    /**
+     * function to load product data
+     */
     public void loadProduct() {
         try {
             try (FileReader fr = new FileReader("Products.txt"); BufferedReader br = new BufferedReader(fr)) {
@@ -216,6 +219,9 @@ public class Office {
         }
     }
 
+    /**
+     * function to load requests data
+     */
     public void loadRequests() {
         try {
             try (FileReader fr = new FileReader("Requests.txt"); BufferedReader br = new BufferedReader(fr)) {
@@ -248,6 +254,9 @@ public class Office {
         }
     }
 
+    /**
+     * function to load assign data
+     */
     public void loadAssign() {
         try {
             try (FileReader fr = new FileReader("Assigned.txt"); BufferedReader br = new BufferedReader(fr)) {
@@ -280,6 +289,9 @@ public class Office {
         }
     }
 
+    /**
+     * function to load admin data
+     */
     public void loadAdmin() {
 
         try {

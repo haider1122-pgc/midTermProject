@@ -122,7 +122,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(230, 230, 230));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton5.setText("Exit");
+        jButton5.setText("Log out");
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,7 +272,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
                 .addGap(103, 103, 103))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel26)
                 .addGap(6, 6, 6))
@@ -396,7 +396,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
 
         jButton17.setBackground(new java.awt.Color(230, 230, 230));
         jButton17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton17.setText("Exit");
+        jButton17.setText("Log out");
         jButton17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -532,7 +532,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
                 .addContainerGap(284, Short.MAX_VALUE)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel60)
                         .addContainerGap())
@@ -873,7 +873,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
             doc.add(tab1e);
             doc.add(new Paragraph("\n"));
             doc.add(new Paragraph("Signature :_____________                                                                           Date/Time : " + Date[0]));
-            JOptionPane.showMessageDialog(null, "Receipt Generated Successfully.../nPath: " + path);
+            JOptionPane.showMessageDialog(null, "Receipt Generated Successfully...\nPath: " + path);
 
         } catch (FileNotFoundException | DocumentException ex) {
             Logger.getLogger(EmployeeScreen.class.getName()).log(Level.SEVERE, null, ex);

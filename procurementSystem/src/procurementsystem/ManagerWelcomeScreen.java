@@ -21,8 +21,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
-
 /**
  *
  * @author Haider
@@ -31,19 +29,19 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
     //object of office class
     Office o = Office.getInstance();
-   
+
     //for tabel output
-    String employeeHeader[] = new String[]{"Name", "Employee ID", "Designation", "Email","City","DOB","Phone","CNIC","Password", "Gender"};
+    String employeeHeader[] = new String[]{"Name", "Employee ID", "Designation", "Email", "City", "DOB", "Phone", "CNIC", "Password", "Gender"};
     DefaultTableModel employee;
     String productHeader[] = new String[]{"Name", "Quantity", "Price"};
     DefaultTableModel products;
-    String requestHeader[] = new String[]{"ID", "Name", "Accessory","Quantity","Date/Time"};
+    String requestHeader[] = new String[]{"ID", "Name", "Accessory", "Quantity", "Date/Time"};
     DefaultTableModel requests;
-    String assignedHeader[] = new String[]{"Name", "ID", "Accessory","Quantity","Date/Time"};
+    String assignedHeader[] = new String[]{"Name", "ID", "Accessory", "Quantity", "Date/Time"};
     DefaultTableModel assigned;
 
-    
-    int empRow,empCol,proRow,proCol,reqRow,reqCol;
+    int empRow, empCol, proRow, proCol, reqRow, reqCol;
+
     /**
      * Creates new form ManagerWelcomeScreen
      */
@@ -54,9 +52,9 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         employeeTabel.setModel(employee);
         products = new DefaultTableModel(productHeader, 0);
         productsTabel.setModel(products);
-        requests= new DefaultTableModel(requestHeader, 0);
+        requests = new DefaultTableModel(requestHeader, 0);
         reqTabel.setModel(requests);
-        assigned= new DefaultTableModel(assignedHeader, 0);
+        assigned = new DefaultTableModel(assignedHeader, 0);
         accTabel.setModel(assigned);
     }
 
@@ -92,6 +90,9 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
+        ne = new javax.swing.JLabel();
+        ne1 = new javax.swing.JLabel();
+        ne2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
@@ -134,6 +135,8 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         emp = new javax.swing.JLabel();
+        jButton20 = new javax.swing.JButton();
+        jLabel76 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
@@ -162,6 +165,8 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jLabel42 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
+        jLabel75 = new javax.swing.JLabel();
+        jButton19 = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
         jLabel55 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
@@ -198,6 +203,8 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jLabel54 = new javax.swing.JLabel();
         jLabel66 = new javax.swing.JLabel();
         jLabel67 = new javax.swing.JLabel();
+        jButton38 = new javax.swing.JButton();
+        jLabel72 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel85 = new javax.swing.JLabel();
@@ -229,6 +236,16 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         });
 
         jPanel7.setBackground(new java.awt.Color(230, 230, 230));
+        jPanel7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPanel7MouseMoved(evt);
+            }
+        });
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel7MouseClicked(evt);
+            }
+        });
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 28)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(102, 0, 51));
@@ -247,7 +264,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(230, 230, 230));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setText("Exit");
+        jButton1.setText("Log out");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -287,6 +304,15 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jLabel71.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/male_user_40px.png"))); // NOI18N
 
+        ne.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ne.setToolTipText("");
+
+        ne1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ne1.setToolTipText("");
+
+        ne2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ne2.setToolTipText("");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -307,24 +333,38 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                             .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel21)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel7Layout.createSequentialGroup()
-                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel7Layout.createSequentialGroup()
+                                            .addGap(65, 65, 65)
+                                            .addComponent(ne, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel10))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
                                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(37, 37, 37)
+                                        .addGroup(jPanel7Layout.createSequentialGroup()
+                                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(jPanel7Layout.createSequentialGroup()
+                                                    .addGap(66, 66, 66)
+                                                    .addComponent(ne1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGap(38, 38, 38))
+                                        .addGroup(jPanel7Layout.createSequentialGroup()
+                                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(38, 38, 38))
+                                        .addGroup(jPanel7Layout.createSequentialGroup()
+                                            .addComponent(ne2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(61, 61, 61)))
                                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel12)
                                         .addComponent(jLabel11)))))))
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(227, Short.MAX_VALUE))
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(280, 280, 280)
+                .addGap(302, 302, 302)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
@@ -337,13 +377,13 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addGap(2, 2, 2))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(284, 284, 284))))
+                        .addGap(299, 299, 299))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,33 +398,45 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addGap(80, 80, 80)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                        .addGap(80, 80, 80)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel10)))
+                .addGap(41, 41, 41)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ne1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel12))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel9)
                         .addGap(36, 36, 36))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel11))
-                .addGap(33, 33, 33)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel11)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(ne2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28)))
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
@@ -646,6 +698,18 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         emp.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         emp.setForeground(new java.awt.Color(255, 0, 0));
 
+        jButton20.setBackground(new java.awt.Color(153, 153, 153));
+        jButton20.setText("PDF");
+        jButton20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+
+        jLabel76.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/pdf_30px.png"))); // NOI18N
+        jLabel76.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -689,11 +753,11 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                                         .addComponent(jLabel29)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
+                                        .addGap(40, 40, 40)
                                         .addComponent(jLabel31)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jButton4)))
-                                .addGap(18, 18, Short.MAX_VALUE)
+                                .addGap(18, 40, Short.MAX_VALUE)
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel9Layout.createSequentialGroup()
                                         .addComponent(jLabel30)
@@ -711,10 +775,15 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(ecnic, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel9Layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addComponent(m)
+                                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(jPanel9Layout.createSequentialGroup()
+                                                        .addGap(6, 6, 6)
+                                                        .addComponent(m))
+                                                    .addComponent(jLabel76, javax.swing.GroupLayout.Alignment.TRAILING))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(f))))
+                                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jButton20)
+                                                    .addComponent(f)))))
                                     .addGroup(jPanel9Layout.createSequentialGroup()
                                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel9Layout.createSequentialGroup()
@@ -728,7 +797,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                         .addComponent(jLabel26)
                         .addContainerGap())
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(275, 275, 275)
+                        .addGap(297, 297, 297)
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel20)
@@ -737,16 +806,15 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addComponent(jScrollPane2)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(503, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(188, 188, 188))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -756,8 +824,9 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                     .addComponent(jLabel24)
                     .addComponent(jLabel20)
                     .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(3, 3, 3)
                 .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel74)
@@ -807,14 +876,17 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                     .addComponent(jLabel31)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel76))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -983,6 +1055,18 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
             }
         });
 
+        jLabel75.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/pdf_30px.png"))); // NOI18N
+        jLabel75.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jButton19.setBackground(new java.awt.Color(153, 153, 153));
+        jButton19.setText("PDF");
+        jButton19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -997,61 +1081,59 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel37)
                 .addGap(6, 6, 6))
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel39)
-                                .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
-                                .addComponent(jLabel41)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(325, 325, 325)
-                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
-                                .addGap(139, 139, 139)
-                                .addComponent(jLabel50)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton11)
-                                .addGap(32, 32, 32)
-                                .addComponent(jLabel42)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton12))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addComponent(jLabel40)
-                                        .addGap(73, 73, 73))
-                                    .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                                                .addComponent(jLabel34)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel35)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel36)
-                                                .addGap(87, 87, 87))
-                                            .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(aname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(aquantity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(aprice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(84, 84, 84)))))))
-                .addContainerGap(115, Short.MAX_VALUE))
             .addComponent(jScrollPane3)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(325, 325, 325)
+                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                .addComponent(jLabel34)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel35)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel36)
+                                .addGap(66, 66, 66))
+                            .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(aname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(aquantity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(aprice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel39)
+                                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(19, 19, 19))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(jLabel41)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel50)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(jButton11)
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel42)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton12)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel40)
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel75)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton19)))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1078,17 +1160,25 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel10Layout.createSequentialGroup()
+                            .addComponent(jLabel40)
+                            .addGap(56, 56, 56))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
+                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel42, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel50, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel41, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jLabel40)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel41))
-                    .addComponent(jLabel50)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel42)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel75)
+                            .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
                     .addComponent(jLabel63))
@@ -1229,7 +1319,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                 .addComponent(jLabel59)
                 .addGap(286, 286, 286))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addContainerGap(247, Short.MAX_VALUE)
+                .addContainerGap(269, Short.MAX_VALUE)
                 .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(242, 242, 242))
             .addComponent(jScrollPane5)
@@ -1397,6 +1487,19 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
             }
         });
 
+        jButton38.setBackground(new java.awt.Color(153, 153, 153));
+        jButton38.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton38.setText("Generate PDF");
+        jButton38.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton38jButton21ActionPerformed(evt);
+            }
+        });
+
+        jLabel72.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/pdf_30px.png"))); // NOI18N
+        jLabel72.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
@@ -1414,18 +1517,6 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
             .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addComponent(jLabel46)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel47)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel48))))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel11Layout.createSequentialGroup()
@@ -1452,8 +1543,26 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 232, Short.MAX_VALUE))
+                        .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(301, 301, 301)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(jLabel46)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel47)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel48)))))
+                .addGap(0, 254, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel72)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton38, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(277, 277, 277))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1485,7 +1594,11 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel56)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton38, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel72))
+                .addGap(30, 30, 30)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1622,16 +1735,17 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                             .addComponent(jButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addGap(324, 324, 324)
-                        .addComponent(jLabel85, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
+                        .addGap(301, 301, 301)
                         .addComponent(jLabel86)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel87)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel88)))
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(234, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel85, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(328, 328, 328))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1686,7 +1800,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 728, Short.MAX_VALUE)
+            .addGap(0, 750, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1736,16 +1850,16 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
-        Requests s=new Requests();
-        String r1,r2,r3,r4,r5,r6;
+        Requests s = new Requests();
+        String r1, r2, r3, r4, r5, r6;
         int qty;
-        r1=o.req.get(reqRow).getNameEmployee();
-        r2=o.req.get(reqRow).getEmployeeID();
-        r3=o.req.get(reqRow).getNameProduct();
-        r4=o.req.get(reqRow).getEmail();
-        r6=o.req.get(reqRow).getPhone();
-        qty=o.req.get(reqRow).getQuantity();
-        r5=o.Time();
+        r1 = o.req.get(reqRow).getNameEmployee();
+        r2 = o.req.get(reqRow).getEmployeeID();
+        r3 = o.req.get(reqRow).getNameProduct();
+        r4 = o.req.get(reqRow).getEmail();
+        r6 = o.req.get(reqRow).getPhone();
+        qty = o.req.get(reqRow).getQuantity();
+        r5 = o.Time();
         //sending data to assigned list
         s.setNameEmployee(r1);
         s.setEmployeeID(r2);
@@ -1756,31 +1870,31 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         s.setPhone(r6);
         o.ass.add(s);
         //minus the requested quantity
-        int qty1=o.pro.get(reqRow).getQuantity()-qty;
+        int qty1 = o.pro.get(reqRow).getQuantity() - qty;
         o.pro.get(reqRow).setQuantity(qty1);
-        JOptionPane.showMessageDialog(null,"Request Approved...");
+        JOptionPane.showMessageDialog(null, "Request Approved...");
         o.req.remove(reqRow);
         requests.setRowCount(0);
         int size = o.req.size();
         for (int i = 0; i < size; i++) {
-                Object[] obj = {o.req.get(i).getEmployeeID(), o.req.get(i).getNameEmployee(), o.req.get(i).getNameProduct(),o.req.get(i).getQuantity(),o.req.get(i).getDateTime()};
-                requests.addRow(obj);
-            }
+            Object[] obj = {o.req.get(i).getEmployeeID(), o.req.get(i).getNameEmployee(), o.req.get(i).getNameProduct(), o.req.get(i).getQuantity(), o.req.get(i).getDateTime()};
+            requests.addRow(obj);
+        }
         rid.setText("");
-        
-        
+
+
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null,"Request Rejected...");
+        JOptionPane.showMessageDialog(null, "Request Rejected...");
         o.req.remove(reqRow);
         requests.setRowCount(0);
         int size = o.req.size();
         for (int i = 0; i < size; i++) {
-                Object[] obj = {o.req.get(i).getEmployeeID(), o.req.get(i).getNameEmployee(), o.req.get(i).getNameProduct(),o.req.get(i).getQuantity(),o.req.get(i).getDateTime()};
-                requests.addRow(obj);
-            }
+            Object[] obj = {o.req.get(i).getEmployeeID(), o.req.get(i).getNameEmployee(), o.req.get(i).getNameProduct(), o.req.get(i).getQuantity(), o.req.get(i).getDateTime()};
+            requests.addRow(obj);
+        }
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
@@ -1862,53 +1976,49 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
     private void jButton33jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33jButton22ActionPerformed
         // TODO add your handling code here:
-        boolean flag= false;
+        boolean flag = false;
         try {
             FileWriter fw = new FileWriter("Employee.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for(int i = 0 ; i < o.emp.size();i++)
-            {
-                bw.write(o.emp.get(i).getName()+","+o.emp.get(i).getEmployeeID()+","+o.emp.get(i).getPassword()+","+o.emp.get(i).getGender()+","+o.emp.get(i).getPhone()+","+o.emp.get(i).getEmail()+","+o.emp.get(i).getDesignation()+","+o.emp.get(i).getCountry()+","+o.emp.get(i).getCnic()+","+o.emp.get(i).getDob()+"\n");
+            for (int i = 0; i < o.emp.size(); i++) {
+                bw.write(o.emp.get(i).getName() + "," + o.emp.get(i).getEmployeeID() + "," + o.emp.get(i).getPassword() + "," + o.emp.get(i).getGender() + "," + o.emp.get(i).getPhone() + "," + o.emp.get(i).getEmail() + "," + o.emp.get(i).getDesignation() + "," + o.emp.get(i).getCountry() + "," + o.emp.get(i).getCnic() + "," + o.emp.get(i).getDob() + "\n");
             }
             bw.flush();
             bw.close();
             fw.close();
-            flag= true;
+            flag = true;
         } catch (IOException ex) {
-            flag= false;
+            flag = false;
         }
-        
-        if(flag==true){
-              JOptionPane.showMessageDialog(null,"Employee Data is saved successfully...");
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Failed to save data....");
+
+        if (flag == true) {
+            JOptionPane.showMessageDialog(null, "Employee Data is saved successfully...");
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to save data....");
         }
     }//GEN-LAST:event_jButton33jButton22ActionPerformed
 
     private void jButton34jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34jButton23ActionPerformed
         // TODO add your handling code here:
-        boolean flag= false;
+        boolean flag = false;
         try {
             FileWriter fw = new FileWriter("Products.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for(int i = 0 ; i < o.emp.size();i++)
-            {
-                bw.write(o.pro.get(i).getName()+","+o.pro.get(i).getQuantity()+","+o.pro.get(i).getPrice()+"\n");
+            for (int i = 0; i < o.emp.size(); i++) {
+                bw.write(o.pro.get(i).getName() + "," + o.pro.get(i).getQuantity() + "," + o.pro.get(i).getPrice() + "\n");
             }
             bw.flush();
             bw.close();
             fw.close();
-            flag= true;
+            flag = true;
         } catch (IOException ex) {
-            flag= false;
+            flag = false;
         }
-        
-        if(flag==true){
-              JOptionPane.showMessageDialog(null,"Products Data is saved successfully...");
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Failed to save data....");
+
+        if (flag == true) {
+            JOptionPane.showMessageDialog(null, "Products Data is saved successfully...");
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to save data....");
         }
     }//GEN-LAST:event_jButton34jButton23ActionPerformed
 
@@ -1923,8 +2033,8 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private void employeeTabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeTabelMouseClicked
         // TODO add your handling code here:
 
-        empRow=employeeTabel.getSelectedRow();
-        empCol=employeeTabel.getColumnCount();
+        empRow = employeeTabel.getSelectedRow();
+        empCol = employeeTabel.getColumnCount();
         //        ename.setText(employee.getValueAt(empRow, 0).toString());
         //        eid.setText(employee.getValueAt(empRow, 1).toString());
         //        edesignation.setText(employee.getValueAt(empRow, 2).toString());
@@ -1937,7 +2047,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         ename.setText(employee.getValueAt(empRow, 0).toString());
         eid.setText(employee.getValueAt(empRow, 1).toString());
         edesignation.setText(employee.getValueAt(empRow, 2).toString());
-        eemail.setText(employee.getValueAt(empRow,3 ).toString());
+        eemail.setText(employee.getValueAt(empRow, 3).toString());
         ecity.setText(employee.getValueAt(empRow, 4).toString());
         edob.setText(employee.getValueAt(empRow, 5).toString());
         ephone.setText(employee.getValueAt(empRow, 6).toString());
@@ -1958,14 +2068,14 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
             employee.addRow(obj);
         }
         ename.setText("");
-            eid.setText("");
-            eemail.setText("");
-            edesignation.setText("");
-            ecity.setText("");
-            epassword.setText("");
-            ephone.setText("");
-            ecnic.setText("");
-            edob.setText("");
+        eid.setText("");
+        eemail.setText("");
+        edesignation.setText("");
+        ecity.setText("");
+        epassword.setText("");
+        ephone.setText("");
+        ecnic.setText("");
+        edob.setText("");
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1984,62 +2094,59 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         e7 = ephone.getText();
         e8 = ecnic.getText();
         e9 = edob.getText();
-          
+
         //for input through radio buttons
         m.setActionCommand("M");
         f.setActionCommand("F");
         String g = buttonGroup1.getSelection().getActionCommand();
         gnd = g;
         e10 = gnd.charAt(0);
-        boolean test1=true;
-        int size0=o.emp.size();
-        for(int i=0;i<size0;i++){
-            if(o.emp.get(i).getEmployeeID().equals(e2)){
-                test1=false;
+        boolean test1 = true;
+        int size0 = o.emp.size();
+        for (int i = 0; i < size0; i++) {
+            if (o.emp.get(i).getEmployeeID().equals(e2)) {
+                test1 = false;
             }
         }
-        if(test1==true){
-        //setting data to class
-        e.setName(e1);
-        e.setCnic(e8);
-        e.setCountry(e5);
-        e.setPassword(e6);
-        e.setPhone(e7);
-        e.setGender(e10);
-        e.setEmployeeID(e2);
-        e.setEmail(e3);
-        e.setDesignation(e4);
-        e.setDob(e9);
+        if (test1 == true) {
+            //setting data to class
+            e.setName(e1);
+            e.setCnic(e8);
+            e.setCountry(e5);
+            e.setPassword(e6);
+            e.setPhone(e7);
+            e.setGender(e10);
+            e.setEmployeeID(e2);
+            e.setEmail(e3);
+            e.setDesignation(e4);
+            e.setDob(e9);
 
-        //validating input
-        boolean test = e.validation();
-        if (test == true) {
-            o.addEmployee(e);
+            //validating input
+            boolean test = e.validation();
+            if (test == true) {
+                o.addEmployee(e);
 
-            int size = o.emp.size();
-            employee.setRowCount(0);
-            for (int i = 0; i < size; i++) {
-                Object[] obj = {o.emp.get(i).getName(), o.emp.get(i).getEmployeeID(), o.emp.get(i).getDesignation(), o.emp.get(i).getEmail(),o.emp.get(i).getCountry(),o.emp.get(i).getDob(),o.emp.get(i).getPhone(),o.emp.get(i).getCnic(),o.emp.get(i).getPassword(), o.emp.get(i).getGender()};
-                employee.addRow(obj);
+                int size = o.emp.size();
+                employee.setRowCount(0);
+                for (int i = 0; i < size; i++) {
+                    Object[] obj = {o.emp.get(i).getName(), o.emp.get(i).getEmployeeID(), o.emp.get(i).getDesignation(), o.emp.get(i).getEmail(), o.emp.get(i).getCountry(), o.emp.get(i).getDob(), o.emp.get(i).getPhone(), o.emp.get(i).getCnic(), o.emp.get(i).getPassword(), o.emp.get(i).getGender()};
+                    employee.addRow(obj);
+                }
+
+                ename.setText("");
+                eid.setText("");
+                eemail.setText("");
+                edesignation.setText("");
+                ecity.setText("");
+                epassword.setText("");
+                ephone.setText("");
+                ecnic.setText("");
+                edob.setText("");
+            } else {
+                JOptionPane.showMessageDialog(null, "Failed to register!!!\nInvalid DATA Input...");
+
             }
-
-            ename.setText("");
-            eid.setText("");
-            eemail.setText("");
-            edesignation.setText("");
-            ecity.setText("");
-            epassword.setText("");
-            ephone.setText("");
-            ecnic.setText("");
-            edob.setText("");
-        } else 
-        {
-            JOptionPane.showMessageDialog(null, "Failed to register!!!\nInvalid DATA Input...");
-
-        }
-        }
-        else
-        {
+        } else {
             JOptionPane.showMessageDialog(null, "Failed to register!!!\nUser already exists...");
         }
 
@@ -2095,8 +2202,8 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
     private void productsTabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productsTabelMouseClicked
         // TODO add your handling code here:
-        proRow=productsTabel.getSelectedRow();
-        proCol=productsTabel.getColumnCount();
+        proRow = productsTabel.getSelectedRow();
+        proCol = productsTabel.getColumnCount();
         aname.setText(products.getValueAt(proRow, 0).toString());
         aquantity.setText(products.getValueAt(proRow, 1).toString());
         aprice.setText(products.getValueAt(proRow, 2).toString());
@@ -2108,13 +2215,13 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         products.setRowCount(0);
         int size = o.pro.size();
         for (int i = 0; i < size; i++) {
-                Object[] obj = {o.pro.get(i).getName(), o.pro.get(i).getQuantity(), o.pro.get(i).getPrice()};
-                products.addRow(obj);
-            }
+            Object[] obj = {o.pro.get(i).getName(), o.pro.get(i).getQuantity(), o.pro.get(i).getPrice()};
+            products.addRow(obj);
+        }
         aname.setText("");
-            aquantity.setText("");
-            aprice.setText("");
-        
+        aquantity.setText("");
+        aprice.setText("");
+
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -2153,12 +2260,12 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         //validating input
         boolean test = e.validation();
         if (test == true) {
-            o.editEmployee(empRow,e);
+            o.editEmployee(empRow, e);
             employee.setRowCount(0);
             int size = o.emp.size();
             employee.setRowCount(0);
             for (int i = 0; i < size; i++) {
-                Object[] obj = {o.emp.get(i).getName(), o.emp.get(i).getEmployeeID(), o.emp.get(i).getDesignation(), o.emp.get(i).getEmail(),o.emp.get(i).getCountry(),o.emp.get(i).getDob(),o.emp.get(i).getPhone(),o.emp.get(i).getCnic(),o.emp.get(i).getPassword(), o.emp.get(i).getGender()};
+                Object[] obj = {o.emp.get(i).getName(), o.emp.get(i).getEmployeeID(), o.emp.get(i).getDesignation(), o.emp.get(i).getEmail(), o.emp.get(i).getCountry(), o.emp.get(i).getDob(), o.emp.get(i).getPhone(), o.emp.get(i).getCnic(), o.emp.get(i).getPassword(), o.emp.get(i).getGender()};
                 employee.addRow(obj);
             }
 
@@ -2209,47 +2316,47 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
         int size = o.emp.size();
-            employee.setRowCount(0);
-            for (int i = 0; i < size; i++) {
-                Object[] obj = {o.emp.get(i).getName(), o.emp.get(i).getEmployeeID(), o.emp.get(i).getDesignation(), o.emp.get(i).getEmail(),o.emp.get(i).getCountry(),o.emp.get(i).getDob(),o.emp.get(i).getPhone(),o.emp.get(i).getCnic(),o.emp.get(i).getPassword(), o.emp.get(i).getGender()};
-                employee.addRow(obj);
-            }
+        employee.setRowCount(0);
+        for (int i = 0; i < size; i++) {
+            Object[] obj = {o.emp.get(i).getName(), o.emp.get(i).getEmployeeID(), o.emp.get(i).getDesignation(), o.emp.get(i).getEmail(), o.emp.get(i).getCountry(), o.emp.get(i).getDob(), o.emp.get(i).getPhone(), o.emp.get(i).getCnic(), o.emp.get(i).getPassword(), o.emp.get(i).getGender()};
+            employee.addRow(obj);
+        }
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
         // TODO add your handling code here:
         int size = o.pro.size();
-            products.setRowCount(0);
-            for (int i = 0; i < size; i++) {
-                Object[] obj = {o.pro.get(i).getName(), o.pro.get(i).getQuantity(), o.pro.get(i).getPrice()};
-                products.addRow(obj);
-            }
+        products.setRowCount(0);
+        for (int i = 0; i < size; i++) {
+            Object[] obj = {o.pro.get(i).getName(), o.pro.get(i).getQuantity(), o.pro.get(i).getPrice()};
+            products.addRow(obj);
+        }
     }//GEN-LAST:event_jLabel28MouseClicked
 
     private void jLabel64MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel64MouseClicked
         // TODO add your handling code here:
         int size = o.ass.size();
-            assigned.setRowCount(0);
-            for (int i = 0; i < size; i++) {
-                Object[] obj = {o.ass.get(i).getNameEmployee(), o.ass.get(i).getEmployeeID(), o.ass.get(i).getNameProduct(),o.ass.get(i).getQuantity(),o.ass.get(i).getDateTime()};
-                assigned.addRow(obj);
-            }
+        assigned.setRowCount(0);
+        for (int i = 0; i < size; i++) {
+            Object[] obj = {o.ass.get(i).getNameEmployee(), o.ass.get(i).getEmployeeID(), o.ass.get(i).getNameProduct(), o.ass.get(i).getQuantity(), o.ass.get(i).getDateTime()};
+            assigned.addRow(obj);
+        }
     }//GEN-LAST:event_jLabel64MouseClicked
 
     private void jLabel66MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel66MouseClicked
         // TODO add your handling code here:
         int size = o.req.size();
-            requests.setRowCount(0);
-            for (int i = 0; i < size; i++) {
-                Object[] obj = {o.req.get(i).getEmployeeID(), o.req.get(i).getNameEmployee(), o.req.get(i).getNameProduct(),o.req.get(i).getQuantity(),o.req.get(i).getDateTime()};
-                requests.addRow(obj);
-            }
+        requests.setRowCount(0);
+        for (int i = 0; i < size; i++) {
+            Object[] obj = {o.req.get(i).getEmployeeID(), o.req.get(i).getNameEmployee(), o.req.get(i).getNameProduct(), o.req.get(i).getQuantity(), o.req.get(i).getDateTime()};
+            requests.addRow(obj);
+        }
     }//GEN-LAST:event_jLabel66MouseClicked
 
     private void reqTabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reqTabelMouseClicked
         // TODO add your handling code here:
-        reqRow=reqTabel.getSelectedRow();
-        reqCol=reqTabel.getColumnCount();
+        reqRow = reqTabel.getSelectedRow();
+        reqCol = reqTabel.getColumnCount();
         rid.setText(requests.getValueAt(reqRow, 0).toString());
     }//GEN-LAST:event_reqTabelMouseClicked
 
@@ -2260,41 +2367,41 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private void jLabel67MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel67MouseClicked
         // TODO add your handling code here:
         int size = o.req.size();
-            requests.setRowCount(0);
-            for (int i = 0; i < size; i++) {
-                Object[] obj = {o.req.get(i).getEmployeeID(), o.req.get(i).getNameEmployee(), o.req.get(i).getNameProduct(),o.req.get(i).getQuantity(),o.req.get(i).getDateTime()};
-                requests.addRow(obj);
-            }
+        requests.setRowCount(0);
+        for (int i = 0; i < size; i++) {
+            Object[] obj = {o.req.get(i).getEmployeeID(), o.req.get(i).getNameEmployee(), o.req.get(i).getNameProduct(), o.req.get(i).getQuantity(), o.req.get(i).getDateTime()};
+            requests.addRow(obj);
+        }
     }//GEN-LAST:event_jLabel67MouseClicked
 
     private void jLabel65MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel65MouseClicked
         // TODO add your handling code here:
         int size = o.ass.size();
-            assigned.setRowCount(0);
-            for (int i = 0; i < size; i++) {
-                Object[] obj = {o.ass.get(i).getNameEmployee(), o.ass.get(i).getEmployeeID(), o.ass.get(i).getNameProduct(),o.ass.get(i).getQuantity(),o.ass.get(i).getDateTime()};
-                assigned.addRow(obj);
-            }
+        assigned.setRowCount(0);
+        for (int i = 0; i < size; i++) {
+            Object[] obj = {o.ass.get(i).getNameEmployee(), o.ass.get(i).getEmployeeID(), o.ass.get(i).getNameProduct(), o.ass.get(i).getQuantity(), o.ass.get(i).getDateTime()};
+            assigned.addRow(obj);
+        }
     }//GEN-LAST:event_jLabel65MouseClicked
 
     private void jLabel63MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel63MouseClicked
         // TODO add your handling code here:
         int size = o.pro.size();
-            products.setRowCount(0);
-            for (int i = 0; i < size; i++) {
-                Object[] obj = {o.pro.get(i).getName(), o.pro.get(i).getQuantity(), o.pro.get(i).getPrice()};
-                products.addRow(obj);
-            }
+        products.setRowCount(0);
+        for (int i = 0; i < size; i++) {
+            Object[] obj = {o.pro.get(i).getName(), o.pro.get(i).getQuantity(), o.pro.get(i).getPrice()};
+            products.addRow(obj);
+        }
     }//GEN-LAST:event_jLabel63MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         // TODO add your handling code here:
         int size = o.emp.size();
-            employee.setRowCount(0);
-            for (int i = 0; i < size; i++) {
-                Object[] obj = {o.emp.get(i).getName(), o.emp.get(i).getEmployeeID(), o.emp.get(i).getDesignation(), o.emp.get(i).getEmail(),o.emp.get(i).getCountry(),o.emp.get(i).getDob(),o.emp.get(i).getPhone(),o.emp.get(i).getCnic(),o.emp.get(i).getPassword(), o.emp.get(i).getGender()};
-                employee.addRow(obj);
-            }
+        employee.setRowCount(0);
+        for (int i = 0; i < size; i++) {
+            Object[] obj = {o.emp.get(i).getName(), o.emp.get(i).getEmployeeID(), o.emp.get(i).getDesignation(), o.emp.get(i).getEmail(), o.emp.get(i).getCountry(), o.emp.get(i).getDob(), o.emp.get(i).getPhone(), o.emp.get(i).getCnic(), o.emp.get(i).getPassword(), o.emp.get(i).getGender()};
+            employee.addRow(obj);
+        }
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void eidMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eidMouseMoved
@@ -2309,54 +2416,50 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
     private void jButton35jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35jButton23ActionPerformed
         // TODO add your handling code here:
-        
-        boolean flag= false;
+
+        boolean flag = false;
         try {
             FileWriter fw = new FileWriter("Requests.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for(int i = 0 ; i < o.emp.size();i++)
-            {
-                bw.write(o.req.get(i).getEmployeeID()+","+o.req.get(i).getNameEmployee()+","+o.req.get(i).getNameProduct()+","+o.req.get(i).getQuantity()+","+o.req.get(i).getEmail()+","+o.req.get(i).getPhone()+","+o.req.get(i).getDateTime()+"\n");
+            for (int i = 0; i < o.emp.size(); i++) {
+                bw.write(o.req.get(i).getEmployeeID() + "," + o.req.get(i).getNameEmployee() + "," + o.req.get(i).getNameProduct() + "," + o.req.get(i).getQuantity() + "," + o.req.get(i).getEmail() + "," + o.req.get(i).getPhone() + "," + o.req.get(i).getDateTime() + "\n");
             }
             bw.flush();
             bw.close();
             fw.close();
-            flag= true;
+            flag = true;
         } catch (IOException ex) {
-            flag= false;
+            flag = false;
         }
-        
-        if(flag==true){
-              JOptionPane.showMessageDialog(null,"Requests Data is saved successfully...");
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Failed to save data....");
+
+        if (flag == true) {
+            JOptionPane.showMessageDialog(null, "Requests Data is saved successfully...");
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to save data....");
         }
     }//GEN-LAST:event_jButton35jButton23ActionPerformed
 
     private void jButton36jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36jButton23ActionPerformed
         // TODO add your handling code here:
-        boolean flag= false;
+        boolean flag = false;
         try {
             FileWriter fw = new FileWriter("Assigned.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for(int i = 0 ; i < o.ass.size();i++)
-            {
-                bw.write(o.ass.get(i).getEmployeeID()+","+o.ass.get(i).getNameEmployee()+","+o.ass.get(i).getNameProduct()+","+o.ass.get(i).getQuantity()+","+o.ass.get(i).getPhone()+","+o.ass.get(i).getEmail()+","+o.ass.get(i).getDateTime()+"\n");
+            for (int i = 0; i < o.ass.size(); i++) {
+                bw.write(o.ass.get(i).getEmployeeID() + "," + o.ass.get(i).getNameEmployee() + "," + o.ass.get(i).getNameProduct() + "," + o.ass.get(i).getQuantity() + "," + o.ass.get(i).getPhone() + "," + o.ass.get(i).getEmail() + "," + o.ass.get(i).getDateTime() + "\n");
             }
             bw.flush();
             bw.close();
             fw.close();
-            flag= true;
+            flag = true;
         } catch (IOException ex) {
-            flag= false;
+            flag = false;
         }
-        
-        if(flag==true){
-              JOptionPane.showMessageDialog(null,"Assigned things Data is saved successfully...");
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Failed to save data....");
+
+        if (flag == true) {
+            JOptionPane.showMessageDialog(null, "Assigned things Data is saved successfully...");
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to save data....");
         }
     }//GEN-LAST:event_jButton36jButton23ActionPerformed
 
@@ -2365,127 +2468,335 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         try {
             FileWriter fw = new FileWriter("Employee.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for(int i = 0 ; i < o.emp.size();i++)
-            {
-                bw.write(o.emp.get(i).getName()+","+o.emp.get(i).getEmployeeID()+","+o.emp.get(i).getPassword()+","+o.emp.get(i).getGender()+","+o.emp.get(i).getPhone()+","+o.emp.get(i).getEmail()+","+o.emp.get(i).getDesignation()+","+o.emp.get(i).getCountry()+","+o.emp.get(i).getCnic()+","+o.emp.get(i).getDob()+"\n");
+            for (int i = 0; i < o.emp.size(); i++) {
+                bw.write(o.emp.get(i).getName() + "," + o.emp.get(i).getEmployeeID() + "," + o.emp.get(i).getPassword() + "," + o.emp.get(i).getGender() + "," + o.emp.get(i).getPhone() + "," + o.emp.get(i).getEmail() + "," + o.emp.get(i).getDesignation() + "," + o.emp.get(i).getCountry() + "," + o.emp.get(i).getCnic() + "," + o.emp.get(i).getDob() + "\n");
             }
             bw.flush();
             bw.close();
             fw.close();
-            
+
         } catch (IOException ex) {
-           
+
         }
-         try {
+        try {
             FileWriter fw = new FileWriter("Products.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for(int i = 0 ; i < o.emp.size();i++)
-            {
-                bw.write(o.pro.get(i).getName()+","+o.pro.get(i).getQuantity()+","+o.pro.get(i).getPrice()+"\n");
+            for (int i = 0; i < o.emp.size(); i++) {
+                bw.write(o.pro.get(i).getName() + "," + o.pro.get(i).getQuantity() + "," + o.pro.get(i).getPrice() + "\n");
             }
             bw.flush();
             bw.close();
             fw.close();
-            
+
         } catch (IOException ex) {
-            
+
         }
-         try {
+        try {
             FileWriter fw = new FileWriter("Requests.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for(int i = 0 ; i < o.emp.size();i++)
-            {
-                bw.write(o.req.get(i).getEmployeeID()+","+o.req.get(i).getNameEmployee()+","+o.req.get(i).getNameProduct()+","+o.req.get(i).getQuantity()+","+o.req.get(i).getEmail()+","+o.req.get(i).getPhone()+","+o.req.get(i).getDateTime()+"\n");
+            for (int i = 0; i < o.emp.size(); i++) {
+                bw.write(o.req.get(i).getEmployeeID() + "," + o.req.get(i).getNameEmployee() + "," + o.req.get(i).getNameProduct() + "," + o.req.get(i).getQuantity() + "," + o.req.get(i).getEmail() + "," + o.req.get(i).getPhone() + "," + o.req.get(i).getDateTime() + "\n");
             }
             bw.flush();
             bw.close();
             fw.close();
-            
+
         } catch (IOException ex) {
-           
+
         }
-         try {
+        try {
             FileWriter fw = new FileWriter("Assigned.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for(int i = 0 ; i < o.ass.size();i++)
-            {
-                bw.write(o.ass.get(i).getEmployeeID()+","+o.ass.get(i).getNameEmployee()+","+o.ass.get(i).getNameProduct()+","+o.ass.get(i).getQuantity()+","+o.ass.get(i).getPhone()+","+o.ass.get(i).getEmail()+","+o.ass.get(i).getDateTime()+"\n");
+            for (int i = 0; i < o.ass.size(); i++) {
+                bw.write(o.ass.get(i).getEmployeeID() + "," + o.ass.get(i).getNameEmployee() + "," + o.ass.get(i).getNameProduct() + "," + o.ass.get(i).getQuantity() + "," + o.ass.get(i).getPhone() + "," + o.ass.get(i).getEmail() + "," + o.ass.get(i).getDateTime() + "\n");
             }
             bw.flush();
             bw.close();
             fw.close();
-            
+
         } catch (IOException ex) {
-           
+
         }
-         
-         JOptionPane.showMessageDialog(null,"All Data saved successfully...");
+
+        JOptionPane.showMessageDialog(null, "All Data saved successfully...");
     }//GEN-LAST:event_jButton32jButton21ActionPerformed
 
     private void jButton37jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37jButton21ActionPerformed
         // TODO add your handling code here:
-        String path="";
-        JFileChooser j= new JFileChooser();
+        String path = "";
+        JFileChooser j = new JFileChooser();
         j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        int k= j.showSaveDialog(this);
-        
-        if(k== JFileChooser.APPROVE_OPTION)
-        {
-            path=j.getSelectedFile().getPath();
+        int k = j.showSaveDialog(this);
+
+        if (k == JFileChooser.APPROVE_OPTION) {
+            path = j.getSelectedFile().getPath();
         }
-        
-        Document doc= new Document();
-        
-       try {
-           PdfWriter.getInstance(doc,new FileOutputStream(path+"Assign.pdf"));
 
-           doc.open();
-           doc.add(new Paragraph("                                         $$---------( Procurement Management System )---------$$"));
-         
-           doc.add(new Paragraph("                                                          &----( Assigned Items Details )----&\n"));
-           doc.add(new Paragraph("\n"));
+        Document doc = new Document();
 
-           doc.add(new Paragraph("Assigned Items :"));
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream(path + "Assign.pdf"));
+
+            doc.open();
+            doc.add(new Paragraph("                                         $$---------( Procurement Management System )---------$$"));
+
+            doc.add(new Paragraph("                                                          &----( Assigned Items Details )----&\n"));
             doc.add(new Paragraph("\n"));
 
-           PdfPTable tab1e= new PdfPTable(5);
-           
-           tab1e.addCell("Name of Employee");
-           tab1e.addCell("ID of Employee");
-           tab1e.addCell("Accessory");
-           tab1e.addCell("Quantity");
-           tab1e.addCell("Date/Time");
-           int rowcnt=accTabel.getRowCount();
-           for (int i = 0; i <rowcnt ; i++) {
-               String empName= accTabel.getValueAt(i, 0).toString();
-               String empId= accTabel.getValueAt(i, 1).toString();
-               String accessory= accTabel.getValueAt(i, 2).toString();
-               String quantity= accTabel.getValueAt(i, 3).toString();
-               String time= accTabel.getValueAt(i, 4).toString();
-               
-               
-               tab1e.addCell(empName);
-               tab1e.addCell(empId);
-               tab1e.addCell(accessory);
-               tab1e.addCell(quantity);
-               tab1e.addCell(time);
-               
-           }
+            doc.add(new Paragraph("Assigned Items :"));
+            doc.add(new Paragraph("\n"));
+
+            PdfPTable tab1e = new PdfPTable(5);
+
+            tab1e.addCell("Name of Employee");
+            tab1e.addCell("ID of Employee");
+            tab1e.addCell("Accessory");
+            tab1e.addCell("Quantity");
+            tab1e.addCell("Date/Time");
+            int rowcnt = accTabel.getRowCount();
+            for (int i = 0; i < rowcnt; i++) {
+                String empName = accTabel.getValueAt(i, 0).toString();
+                String empId = accTabel.getValueAt(i, 1).toString();
+                String accessory = accTabel.getValueAt(i, 2).toString();
+                String quantity = accTabel.getValueAt(i, 3).toString();
+                String time = accTabel.getValueAt(i, 4).toString();
+
+                tab1e.addCell(empName);
+                tab1e.addCell(empId);
+                tab1e.addCell(accessory);
+                tab1e.addCell(quantity);
+                tab1e.addCell(time);
+
+            }
             String[] Date = o.Time().split(" ");
-           doc.add(tab1e);
-           doc.add(new Paragraph("\n"));
-           doc.add(new Paragraph("Signature :_____________                                                            Date/Time : "+Date[0]));
-            JOptionPane.showMessageDialog(null,"PDF Generated Successfully...\nPath: "+path);
-           
-           
-       } catch (FileNotFoundException | DocumentException ex) {
-           Logger.getLogger(ManagerWelcomeScreen.class.getName()).log(Level.SEVERE, null, ex);
-       }
-        
-        
+            doc.add(tab1e);
+            doc.add(new Paragraph("\n"));
+            doc.add(new Paragraph("Signature :_____________                                                            Date/Time : " + Date[0]));
+            JOptionPane.showMessageDialog(null, "PDF Generated Successfully...\nPath: " + path);
+
+        } catch (FileNotFoundException | DocumentException ex) {
+            Logger.getLogger(ManagerWelcomeScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         doc.close();
-        
+
     }//GEN-LAST:event_jButton37jButton21ActionPerformed
+
+    private void jButton38jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38jButton21ActionPerformed
+        // TODO add your handling code here:
+        String path = "";
+        JFileChooser j = new JFileChooser();
+        j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int k = j.showSaveDialog(this);
+
+        if (k == JFileChooser.APPROVE_OPTION) {
+            path = j.getSelectedFile().getPath();
+        }
+
+        Document doc = new Document();
+
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream(path + "Requests.pdf"));
+
+            doc.open();
+            doc.add(new Paragraph("                                         $$---------( Procurement Management System )---------$$"));
+
+            doc.add(new Paragraph("                                                          &----( Requests Report )----&\n"));
+            doc.add(new Paragraph("\n"));
+
+            doc.add(new Paragraph("Requests :"));
+            doc.add(new Paragraph("\n"));
+
+            PdfPTable tab1e = new PdfPTable(5);
+
+            tab1e.addCell("Name of Employee");
+            tab1e.addCell("ID of Employee");
+            tab1e.addCell("Accessory");
+            tab1e.addCell("Quantity");
+            tab1e.addCell("Date/Time");
+            int rowcnt = accTabel.getRowCount();
+            for (int i = 0; i < rowcnt; i++) {
+                String empName = accTabel.getValueAt(i, 0).toString();
+                String empId = accTabel.getValueAt(i, 1).toString();
+                String accessory = accTabel.getValueAt(i, 2).toString();
+                String quantity = accTabel.getValueAt(i, 3).toString();
+                String time = accTabel.getValueAt(i, 4).toString();
+
+                tab1e.addCell(empName);
+                tab1e.addCell(empId);
+                tab1e.addCell(accessory);
+                tab1e.addCell(quantity);
+                tab1e.addCell(time);
+
+            }
+            String[] Date = o.Time().split(" ");
+            doc.add(tab1e);
+            doc.add(new Paragraph("\n"));
+            doc.add(new Paragraph("Signature :_____________                                                            Date/Time : " + Date[0]));
+            JOptionPane.showMessageDialog(null, "Repoet Generated Successfully...\nPath: " + path);
+
+        } catch (FileNotFoundException | DocumentException ex) {
+            Logger.getLogger(ManagerWelcomeScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        doc.close();
+    }//GEN-LAST:event_jButton38jButton21ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        // TODO add your handling code here:
+        String path = "";
+        JFileChooser j = new JFileChooser();
+        j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int k = j.showSaveDialog(this);
+
+        if (k == JFileChooser.APPROVE_OPTION) {
+            path = j.getSelectedFile().getPath();
+        }
+
+        Document doc = new Document();
+
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream(path + "Accessories.pdf"));
+
+            
+
+            doc.open();
+            doc.add(new Paragraph("                                         $$---------( Procurement Management System )---------$$"));
+
+            doc.add(new Paragraph("                                                          &----( Accessories Report )----&\n"));
+            doc.add(new Paragraph("\n"));
+            
+
+            doc.add(new Paragraph("Accessories :"));
+            doc.add(new Paragraph("\n"));
+
+            PdfPTable tab1e = new PdfPTable(3);
+
+            tab1e.addCell("Name of Product");
+            tab1e.addCell("Quantity");
+            tab1e.addCell("Price");
+            int rowcnt = productsTabel.getRowCount();
+            for (int i = 0; i < rowcnt; i++) {
+
+                String accessory = productsTabel.getValueAt(i, 0).toString();
+                String quantity = productsTabel.getValueAt(i, 1).toString();
+                String price = productsTabel.getValueAt(i, 2).toString();
+
+                tab1e.addCell(accessory);
+                tab1e.addCell(quantity);
+                tab1e.addCell(price);
+
+            }
+            String[] Date = o.Time().split(" ");
+            doc.add(tab1e);
+            doc.add(new Paragraph("\n"));
+            doc.add(new Paragraph("Signature :_____________                                                                           Date/Time : " + Date[0]));
+            JOptionPane.showMessageDialog(null, "Report Generated Successfully...\nPath: " + path);
+
+        } catch (FileNotFoundException | DocumentException ex) {
+            Logger.getLogger(EmployeeScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        doc.close();
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        // TODO add your handling code here:
+        String path = "";
+        JFileChooser j = new JFileChooser();
+        j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int k = j.showSaveDialog(this);
+
+        if (k == JFileChooser.APPROVE_OPTION) {
+            path = j.getSelectedFile().getPath();
+        }
+
+        Document doc = new Document();
+
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream(path + "Employee.pdf"));
+
+            
+
+            doc.open();
+            doc.add(new Paragraph("                                         $$---------( Procurement Management System )---------$$"));
+
+            doc.add(new Paragraph("                                                              &----( Employee Report )----&\n"));
+            doc.add(new Paragraph("\n"));
+            
+
+            doc.add(new Paragraph("Employees :"));
+            doc.add(new Paragraph("\n"));
+
+            PdfPTable tab1e = new PdfPTable(10);
+
+            tab1e.addCell("Name");
+            tab1e.addCell("ID");
+            tab1e.addCell("Designation");
+            tab1e.addCell("Email");
+            tab1e.addCell("City");
+            tab1e.addCell("DOB");
+            tab1e.addCell("Phone");
+            tab1e.addCell("CNIC");
+            tab1e.addCell("Password");
+             tab1e.addCell("Gender");
+            
+            int rowcnt = employeeTabel.getRowCount();
+            for (int i = 0; i < rowcnt; i++) {
+
+                String  e1= employeeTabel.getValueAt(i, 0).toString();
+                String  e2= employeeTabel.getValueAt(i, 1).toString();
+                String  e3= employeeTabel.getValueAt(i, 2).toString();
+                String  e4= employeeTabel.getValueAt(i, 3).toString();
+                String  e5= employeeTabel.getValueAt(i, 4).toString();
+                String  e6= employeeTabel.getValueAt(i, 5).toString();
+                String  e7= employeeTabel.getValueAt(i, 6).toString();
+                String  e8= employeeTabel.getValueAt(i, 7).toString();
+                String  e9= employeeTabel.getValueAt(i, 8).toString();
+                String  e10= employeeTabel.getValueAt(i, 9).toString();
+                
+
+                tab1e.addCell(e1);
+                tab1e.addCell(e2);
+                tab1e.addCell(e3);
+                tab1e.addCell(e4);
+                tab1e.addCell(e5);
+                tab1e.addCell(e6);
+                tab1e.addCell(e7);
+                tab1e.addCell(e8);
+                tab1e.addCell(e9);
+                tab1e.addCell(e10);
+               
+            }
+            String[] Date = o.Time().split(" ");
+            doc.add(tab1e);
+            doc.add(new Paragraph("\n"));
+            doc.add(new Paragraph("Signature :_____________                                                                           Date/Time : " + Date[0]));
+            JOptionPane.showMessageDialog(null, "Report Generated Successfully...\nPath: " + path);
+
+        } catch (FileNotFoundException | DocumentException ex) {
+            Logger.getLogger(ManagerWelcomeScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        doc.close();
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jPanel7MouseClicked
+
+    private void jPanel7MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseMoved
+        // TODO add your handling code here:
+        int size1=o.emp.size();
+        int size2=o.pro.size();
+        int size3=o.req.size();
+        
+        ne.setText(size1+"");
+        ne1.setText(size2+"");
+        ne2.setText(size3+"");
+        
+    }//GEN-LAST:event_jPanel7MouseMoved
 
     /**
      * @param args the command line arguments
@@ -2507,7 +2818,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ManagerWelcomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */
@@ -2544,6 +2855,8 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton31;
@@ -2553,6 +2866,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
     private javax.swing.JButton jButton37;
+    private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -2628,8 +2942,11 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;
@@ -2664,6 +2981,9 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JRadioButton m;
+    private javax.swing.JLabel ne;
+    private javax.swing.JLabel ne1;
+    private javax.swing.JLabel ne2;
     private javax.swing.JTable productsTabel;
     private javax.swing.JTable reqTabel;
     private javax.swing.JTextField rid;

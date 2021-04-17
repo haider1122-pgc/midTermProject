@@ -58,6 +58,7 @@ public class Office {
        of.loadProduct();
        of.loadRequests();
        of.loadAdmin();
+       of.loadAssign();
       
       
        
@@ -254,24 +255,26 @@ public class Office {
              
              String line= br.readLine();
              
-            int i=0;
+            
             
              while(line != null)
              {
                  
-                 Requests e = new Requests();
+                 Requests k = new Requests();
                  String[] str = line.split(",");
-                 ass.get(i).setEmployeeID(str[0]);
-                 ass.get(i).setNameEmployee(str[1]);
-                 ass.get(i).setNameProduct(str[2]);
-                 ass.get(i).setQuantity(Integer.parseInt(str[3]));
-                 ass.get(i).setDateTime(str[4]);
+                 k.setEmployeeID(str[0]);
+                 k.setNameEmployee(str[1]);
+                 k.setNameProduct(str[2]);
+                 k.setQuantity(Integer.parseInt(str[3]));
+                 k.setPhone(str[4]);
+                 k.setEmail(str[5]);
+                 k.setDateTime(str[6]);
                  
                  
                  
-                  //ass.add(i, e);
+                 ass.add(k);
                   line = br.readLine();
-                  i++;
+                 
                  
              }
              

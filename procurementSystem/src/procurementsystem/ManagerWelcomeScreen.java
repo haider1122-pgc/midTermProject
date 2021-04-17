@@ -1701,11 +1701,13 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
         Requests s=new Requests();
-        String r1,r2,r3,r4,r5;
+        String r1,r2,r3,r4,r5,r6;
         int qty;
         r1=o.req.get(reqRow).getNameEmployee();
         r2=o.req.get(reqRow).getEmployeeID();
         r3=o.req.get(reqRow).getNameProduct();
+        r4=o.req.get(reqRow).getEmail();
+        r6=o.req.get(reqRow).getPhone();
         qty=o.req.get(reqRow).getQuantity();
         r5=o.Time();
         //sending data to assigned list
@@ -1714,6 +1716,8 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         s.setNameProduct(r3);
         s.setQuantity(qty);
         s.setDateTime(r5);
+        s.setEmail(r4);
+        s.setPhone(r6);
         o.ass.add(s);
         //minus the requested quantity
         int qty1=o.pro.get(reqRow).getQuantity()-qty;
@@ -2300,9 +2304,9 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         try {
             FileWriter fw = new FileWriter("Assigned.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for(int i = 0 ; i < o.emp.size();i++)
+            for(int i = 0 ; i < o.ass.size();i++)
             {
-                bw.write(o.ass.get(i).getEmployeeID()+","+o.ass.get(i).getNameEmployee()+","+o.ass.get(i).getNameProduct()+","+o.ass.get(i).getQuantity()+","+o.ass.get(i).getDateTime()+"\n");
+                bw.write(o.ass.get(i).getEmployeeID()+","+o.ass.get(i).getNameEmployee()+","+o.ass.get(i).getNameProduct()+","+o.ass.get(i).getQuantity()+","+o.ass.get(i).getPhone()+","+o.ass.get(i).getEmail()+","+o.ass.get(i).getDateTime()+"\n");
             }
             bw.flush();
             bw.close();
@@ -2367,9 +2371,9 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
          try {
             FileWriter fw = new FileWriter("Assigned.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for(int i = 0 ; i < o.emp.size();i++)
+            for(int i = 0 ; i < o.ass.size();i++)
             {
-                bw.write(o.ass.get(i).getEmployeeID()+","+o.ass.get(i).getNameEmployee()+","+o.ass.get(i).getNameProduct()+","+o.ass.get(i).getQuantity()+","+o.ass.get(i).getDateTime()+"\n");
+                bw.write(o.ass.get(i).getEmployeeID()+","+o.ass.get(i).getNameEmployee()+","+o.ass.get(i).getNameProduct()+","+o.ass.get(i).getQuantity()+","+o.ass.get(i).getPhone()+","+o.ass.get(i).getEmail()+","+o.ass.get(i).getDateTime()+"\n");
             }
             bw.flush();
             bw.close();

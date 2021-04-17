@@ -1,2 +1,2 @@
-Emp-1,Haider ali,usb,2,2021-04-16 18:07:55.348
-Emp-2, ali,laptop,2,2021-04-16 18:07:59.672
+Emp-1,Haider ali,laptop,1,03241481668,ha@gmail.com,2021-04-16 20:36:16.112
+Emp-1,Haider ali,usb,1,03241481668,ha@gmail.com,2021-04-16 20:40:14.814

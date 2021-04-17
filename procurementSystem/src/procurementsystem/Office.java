@@ -53,7 +53,11 @@ public class Office {
         WelcomeScreen s=new WelcomeScreen();
         s.setVisible(true);
         //loading data
-       
+        Office of=Office.getInstance();
+       of.loadEmployee();
+       of.loadProduct();
+       of.loadRequests();
+       of.loadAdmin();
       
       
        
@@ -136,19 +140,20 @@ public class Office {
     /**
      * function to load employee data
      */
-    public void loadEmployee(){
+    public  void loadEmployee(){
          
      try {
          try (FileReader fr = new FileReader("Employee.txt"); BufferedReader br = new BufferedReader(fr)) {
              
-             String line;
+             String line= br.readLine();
              
-             line = br.readLine();
+            
+            
              while(line != null)
              {
+                 
                  Employee e = new Employee();
                  String[] str = line.split(",");
-                 
                  e.setName(str[0]);
                  e.setEmployeeID(str[1]);
                  e.setPassword(str[2]);
@@ -161,12 +166,118 @@ public class Office {
                  e.setDob(str[9]);
                  
                  emp.add(e);
+                  line = br.readLine();
                  
              }
              
              
+             br.close();
+             fr.close();
+             
+         }
+        } catch (IOException ex) {
+           
+        }
+    }
+    public void loadProduct(){
+        try {
+         try (FileReader fr = new FileReader("Products.txt"); BufferedReader br = new BufferedReader(fr)) {
+             
+             String line= br.readLine();
+             
+            
+            
+             while(line != null)
+             {
+                 
+                 Products e = new Products();
+                 String[] str = line.split(",");
+                 e.setName(str[0]);
+                 e.setQuantity(Integer.parseInt(str[1]));
+                 e.setPrice(Integer.parseInt(str[2]));
+                 
+                 
+                 pro.add(e);
+                  line = br.readLine();
+                 
+             }
              
              
+             br.close();
+             fr.close();
+             
+         }
+        } catch (IOException ex) {
+           
+        }
+    }
+    public void loadRequests(){
+        try {
+         try (FileReader fr = new FileReader("Requests.txt"); BufferedReader br = new BufferedReader(fr)) {
+             
+             String line= br.readLine();
+             
+            
+            
+             while(line != null)
+             {
+                 
+                 Requests e = new Requests();
+                 String[] str = line.split(",");
+                 e.setEmployeeID(str[0]);
+                 e.setNameEmployee(str[1]);
+                 e.setNameProduct(str[2]);
+                 e.setQuantity(Integer.parseInt(str[3]));
+                 e.setEmail(str[4]);
+                 e.setPhone(str[5]);
+                 e.setDateTime(str[6]);
+                 
+                 
+                 
+                 req.add(e);
+                  line = br.readLine();
+                 
+             }
+             
+             
+             br.close();
+             fr.close();
+             
+         }
+        } catch (IOException ex) {
+           
+        }
+    }
+    public void loadAssign(){
+        try {
+         try (FileReader fr = new FileReader("Assigned.txt"); BufferedReader br = new BufferedReader(fr)) {
+             
+             String line= br.readLine();
+             
+            int i=0;
+            
+             while(line != null)
+             {
+                 
+                 Requests e = new Requests();
+                 String[] str = line.split(",");
+                 ass.get(i).setEmployeeID(str[0]);
+                 ass.get(i).setNameEmployee(str[1]);
+                 ass.get(i).setNameProduct(str[2]);
+                 ass.get(i).setQuantity(Integer.parseInt(str[3]));
+                 ass.get(i).setDateTime(str[4]);
+                 
+                 
+                 
+                  //ass.add(i, e);
+                  line = br.readLine();
+                  i++;
+                 
+             }
+             
+             
+             br.close();
+             fr.close();
              
          }
         } catch (IOException ex) {
@@ -174,5 +285,47 @@ public class Office {
         }
     }
     
+    public  void loadAdmin(){
+         
+     try {
+         try (FileReader fr = new FileReader("Manager.txt"); BufferedReader br = new BufferedReader(fr)) {
+             
+             String line= br.readLine();
+             
+            
+            
+             while(line != null)
+             {
+                 
+                accessoryManager e = new accessoryManager();
+                 String[] str = line.split(",");
+                 e.setName(str[0]);
+                 e.setManagerID(str[1]);
+                 e.setPassword(str[2]);
+                 e.setGender(str[3].charAt(0));
+                 e.setPhone(str[4]);
+                 e.setEmail(str[5]);
+                 e.setCountry(str[6]);
+                 e.setCnic(str[7]);
+                 e.setDob(str[8]);
+                 
+                 man.add(e);
+                  line = br.readLine();
+                 
+             }
+             
+             
+             br.close();
+             fr.close();
+             
+         }
+        } catch (IOException ex) {
+           
+        }
+    }
+    
+             
+             
+            
 }
  

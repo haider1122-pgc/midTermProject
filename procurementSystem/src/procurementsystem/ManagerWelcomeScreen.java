@@ -80,7 +80,6 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
@@ -274,13 +273,6 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
 
         jLabel71.setIcon(new javax.swing.ImageIcon(getClass().getResource("/procurementsystem/male_user_40px.png"))); // NOI18N
 
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -337,10 +329,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                         .addGap(2, 2, 2))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(284, 284, 284))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(51, 51, 51))))
+                        .addGap(284, 284, 284))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -381,9 +370,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
@@ -1833,10 +1820,6 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         w.setVisible(true);
     }//GEN-LAST:event_jButton31jButton20ActionPerformed
 
-    private void jButton32jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32jButton21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton32jButton21ActionPerformed
-
     private void jButton33jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33jButton22ActionPerformed
         // TODO add your handling code here:
         boolean flag= false;
@@ -2319,7 +2302,7 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
             BufferedWriter bw = new BufferedWriter(fw);
             for(int i = 0 ; i < o.emp.size();i++)
             {
-                bw.write(o.ass.get(i).getEmployeeID()+","+o.ass.get(i).getNameEmployee()+","+o.ass.get(i).getNameProduct()+","+o.ass.get(i).getQuantity()+","+o.ass.get(i).getEmail()+","+o.ass.get(i).getPhone()+","+o.ass.get(i).getDateTime()+"\n");
+                bw.write(o.ass.get(i).getEmployeeID()+","+o.ass.get(i).getNameEmployee()+","+o.ass.get(i).getNameProduct()+","+o.ass.get(i).getQuantity()+","+o.ass.get(i).getDateTime()+"\n");
             }
             bw.flush();
             bw.close();
@@ -2337,10 +2320,67 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton36jButton23ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton32jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32jButton21ActionPerformed
         // TODO add your handling code here:
-        o.loadEmployee();
-    }//GEN-LAST:event_jButton2ActionPerformed
+        try {
+            FileWriter fw = new FileWriter("Employee.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            for(int i = 0 ; i < o.emp.size();i++)
+            {
+                bw.write(o.emp.get(i).getName()+","+o.emp.get(i).getEmployeeID()+","+o.emp.get(i).getPassword()+","+o.emp.get(i).getGender()+","+o.emp.get(i).getPhone()+","+o.emp.get(i).getEmail()+","+o.emp.get(i).getDesignation()+","+o.emp.get(i).getCountry()+","+o.emp.get(i).getCnic()+","+o.emp.get(i).getDob()+"\n");
+            }
+            bw.flush();
+            bw.close();
+            fw.close();
+            
+        } catch (IOException ex) {
+           
+        }
+         try {
+            FileWriter fw = new FileWriter("Products.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            for(int i = 0 ; i < o.emp.size();i++)
+            {
+                bw.write(o.pro.get(i).getName()+","+o.pro.get(i).getQuantity()+","+o.pro.get(i).getPrice()+"\n");
+            }
+            bw.flush();
+            bw.close();
+            fw.close();
+            
+        } catch (IOException ex) {
+            
+        }
+         try {
+            FileWriter fw = new FileWriter("Requests.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            for(int i = 0 ; i < o.emp.size();i++)
+            {
+                bw.write(o.req.get(i).getEmployeeID()+","+o.req.get(i).getNameEmployee()+","+o.req.get(i).getNameProduct()+","+o.req.get(i).getQuantity()+","+o.req.get(i).getEmail()+","+o.req.get(i).getPhone()+","+o.req.get(i).getDateTime()+"\n");
+            }
+            bw.flush();
+            bw.close();
+            fw.close();
+            
+        } catch (IOException ex) {
+           
+        }
+         try {
+            FileWriter fw = new FileWriter("Assigned.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            for(int i = 0 ; i < o.emp.size();i++)
+            {
+                bw.write(o.ass.get(i).getEmployeeID()+","+o.ass.get(i).getNameEmployee()+","+o.ass.get(i).getNameProduct()+","+o.ass.get(i).getQuantity()+","+o.ass.get(i).getDateTime()+"\n");
+            }
+            bw.flush();
+            bw.close();
+            fw.close();
+            
+        } catch (IOException ex) {
+           
+        }
+         
+         JOptionPane.showMessageDialog(null,"All Data saved successfully...");
+    }//GEN-LAST:event_jButton32jButton21ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2399,7 +2439,6 @@ public class ManagerWelcomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton31;

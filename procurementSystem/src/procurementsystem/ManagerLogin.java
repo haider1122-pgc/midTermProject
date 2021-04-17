@@ -279,15 +279,14 @@ public class ManagerLogin extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        accessoryManager a=new accessoryManager();
-        o.man.add(a);
+        
         int i=0;
         if(mid.getText().equals(o.man.get(i).getManagerID()) && mpass.getText().equals(o.man.get(i).getPassword()) || (mid.getText().equals("123") && mpass.getText().equals("123")) ){
             ManagerWelcomeScreen s=new ManagerWelcomeScreen();
         s.setVisible(true);
         }
         else{
-            JOptionPane.showMessageDialog(null,"Incalid credentials...");
+            JOptionPane.showMessageDialog(null,"Invalid credentials...");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 

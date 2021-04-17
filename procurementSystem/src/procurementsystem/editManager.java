@@ -430,9 +430,10 @@ public class editManager extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        accessoryManager a=new accessoryManager();
+        accessoryManager a= new accessoryManager();
+        o.man.add(a);
         int i=0;
-       o.man.add(a);
+       
        
         o.man.get(i).setName(ename.getText());
         o.man.get(i).setCnic(ecnic.getText());
@@ -470,7 +471,7 @@ public class editManager extends javax.swing.JFrame {
         try {
             FileWriter fw = new FileWriter("Manager.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for(int j = 0 ; j < o.emp.size();j++)
+            for(int j = 0 ; j < 1;j++)
             {
                 bw.write(o.man.get(j).getName()+","+o.man.get(j).getManagerID()+","+o.man.get(j).getPassword()+","+o.man.get(j).getGender()+","+o.man.get(j).getPhone()+","+o.man.get(j).getEmail()+","+o.man.get(j).getCountry()+","+o.man.get(j).getCnic()+","+o.man.get(j).getDob()+"\n");
             }
@@ -537,9 +538,6 @@ public class editManager extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-         accessoryManager a=new accessoryManager();
-        
-       o.man.add(a);
         int i=0;
         ename.setText(o.man.get(i).getName());
        ecnic.setText(o.man.get(i).getCnic() );
